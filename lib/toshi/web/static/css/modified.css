@@ -335,6 +335,32 @@ div[class*="feature"] > div {
 .navbar-default .navbar-nav > li > a:hover {
 	color: #fff;
 }
+.network_explorer .networ_status {
+	float: right;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.network_explorer .networ_status li {
+	float: right;
+	text-transform: uppercase;
+} 
+.networ_status .select_network h4 {
+	margin: 0;
+	line-height: 50px;
+	font-size: 15px
+}
+.networ_status .select_network {
+	margin-right: 20px;
+}
+.networ_status .status_network span {
+	font-size: 12px;
+	font-family: bold;
+	border: 1px solid #fff;
+	padding: 3px 10px;
+	display: inline-block;
+	margin-top: 13px;
+}
 /* ==========================================================================
    Section style
    ========================================================================== */
@@ -632,60 +658,101 @@ div[class*="feature"] > div {
    ========================================================================== */
 .explorer_wraper {
 	position: relative;
-}
-.explorer {
 	padding: 0 0 100px 0;
 	margin-top: 50px;
 }
-.block {
-	padding: 2px;
-}
-.block_wraper {
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: 50px;
-	z-index: 10;
-}
-.block_wraper > div {
-	display: inline-block;
-	/*position: absolute;*/
-	/*height: 333px;*/
-	/*width: 333px;*/
-}
-.block_wraper > div > a {
-	display: block;
-	padding: 20px;
-	background-color: #2c3d5c;
-	height: 100%;
-}
-.block_wraper > div > a:hover {
-	background-color: #44587E;
-}
-.block_wraper > div h4 {
-	color: #fff;
-	display: inline-block;
-	font-size: 16px;
-}
-.block_wraper > div h4 span {
-	color: #fff;
-	display: block;
-	font-size: 11px;
-	font-weight: lighter;
-}
-.explorer .documentation_link {
-	margin-bottom: 0;
-}
-.explorer .section_title {
-	margin: 0;
-}
-.network_explorer .explorer_info .content{
+.explorer_info {
+	float: left;
+	height: 600px;
 	background-color: #2c3d5c;
 	padding: 50px;
 }
+.block_wraper .block_info {
+	position: relative;
+}
+.block_wraper .block_info > a {
+	display: block;
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: 0px;
+	bottom: 0px;
+	padding: 15px;
+	background-color: #2c3d5c;
+	color: #fff;
+	text-decoration: none;
+	z-index: 10;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+.block_wraper .block_info > a:after {
+	content: "";
+	position: absolute;
+	left: 2px;
+	right: 2px;
+	top: 2px;
+	bottom: 2px;
+	border: 1px solid rgba(255,255,255, .1);
+	background-color: transparent;
+	z-index: 1;
+	-webkit-transition: all 0.2s ease-in;
+	-moz-transition: all 0.2s ease-in;
+	-o-transition: all 0.2s ease-in;
+	transition: all 0.2s ease-in;
+}
 
-.network_explorer .section_title,
-.network_explorer .search {
+.block_wraper .block_info > a:hover {
+	background-color: #44587E;
+}
+.block_wraper .block_info > a h4 {
+	margin: 0;
+	color: rgba(255,255,255, .4);
+	display: block;
+	font-size: 17px;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+	position: relative;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+.block_wraper .block_info > a h4.block_id:after {
+	content: "";
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	background:rgba(255,255,255, .2);
+	width: 10px;
+	height: 1px;
+	z-index: 1;
+}
+.block_wraper .block_info > a h4 span {
+	color: rgba(255,255,255, .4);
+	display: block;
+	font-size: 12px;
+	font-weight: lighter;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+.block_wraper .block_info > a:hover h4 {
+	color: rgba(255,255,255, 1);
+}
+.block_wraper .block_info > a:hover h4 span {
+	color: rgba(255,255,255, .8);
+}
+.block_wraper .block_info > a:hover:after {
+	border: 1px solid rgba(255,255,255, .5);
+}
+
+
+
+.explorer_info .section_title,
+.explorer_info .search {
 	margin-bottom: 20px;
 	padding-bottom: 20px;
 	border-bottom: 1px solid rgba(255, 255, 255, 0.4);
@@ -698,11 +765,7 @@ div[class*="feature"] > div {
 	width: 100%;
 	padding: 10px;
 }
-.explorer_search {
-	position: relative;
-	margin-bottom: 40px;
-}
-.explorer_info .explorer_search:after {
+.explorer_info .search-control:after {
 	content: "";
 	position: absolute;
 	right: 5px;
@@ -715,7 +778,7 @@ div[class*="feature"] > div {
 	background-size: 100%;
 	opacity: .2;
 }
-.transactions h4 {
+/*.transactions h4 {
 	color: #C6CEDD;
 	margin-bottom: 20px;
 }
@@ -750,7 +813,7 @@ div[class*="feature"] > div {
 	border-radius: 20px;
 	display: inline-block;
 	font-size: 13px;
-}
+}*/
 /* ==========================================================================
    Footer
    ========================================================================== */

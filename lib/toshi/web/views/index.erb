@@ -1,14 +1,8 @@
-<div class="explorer">
-  <div class="block_wraper">
+<div class="explorer_wraper">
+  <div class="block_wraper clearfix">
+
+
     <div class="explorer_info block" style="width: 40%">
-      <div class="content">
-        <div class="section_title">
-          <h2>Search <span>search in network for address, block, transaction</span>
-          </h2>
-        </div>
-        <div class="search">
-          <input type="email" class="search-control" id="exampleInputEmail1" placeholder="Type in address, block, transaction">
-        </div>
 
         <div class="transactions">
           <h4>Live Transactions</h4>
@@ -21,14 +15,22 @@
             <li><a href="#">-0.3476000 BTC</a></li>
           </ul>
         </div>
-      </div>
+
+        <div class="section_title">
+          <h2>Search <span>search in network for address, block, transaction</span>
+          </h2>
+        </div>
+        <div class="search">
+          <input type="email" class="search-control" id="exampleInputEmail1" placeholder="Type in address, block, transaction">
+        </div>
     </div>
 
     <% Toshi::Models::Block.main_branch.limit(100).order(Sequel.desc(:height)).each{|block| %>
     <% block_size = rand(100..300) %>
-    <div class="block" style="height: 150px; width: <%= block_size %>px">
+    <div class="block_info block" style="height: 150px; width: <%= block_size %>px">
       <a href="#">
-        <h4><%= block.height %><span>Block Height</span></h4>
+        <h4 class="block_id"><%= block.height %><span>Block Height</span></h4>
+        <h4 class="tx_num"><%= block.height %><span>Transactions</span></h4>
       </a>
     </div>
     <% } %>
