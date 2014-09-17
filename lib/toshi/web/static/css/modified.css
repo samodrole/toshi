@@ -89,8 +89,8 @@ body {
 	font-size:14px;
 	color: #B3D0E4;
 	-webkit-font-smoothing: antialiased;
-	position: relative;
-	background-color: #29456D;
+	position: relative;			
+	background: #0C1B31;
 
 }
 body:before {
@@ -664,15 +664,15 @@ div[class*="feature"] > div {
    ========================================================================== */
 .explorer_wraper {
 	position: relative;
-	padding: 0 0 100px 0;
+	padding: 0 0 60px 0;
 	margin-top: 50px;
 }
 .explorer_info {
 	float: left;
-	height: 448px;
+	height: 446px;
 	background-color: #2c3d5c;
 	padding: 0px;
-	margin: 1px 0px 0px 2px;
+	margin: 2px 1px 0px 2px;
 	position: relative !important;
 }
 .block_wraper .block_info,
@@ -701,9 +701,9 @@ div[class*="feature"] > div {
 	display: block;
 	position: absolute;
 	left: 1px;
-	right: 0px;
-	top: 0px;
-	bottom: 0px;
+	right: 1px;
+	top: 1px;
+	bottom: 1px;
 	padding: 10px;
 	background-color: #2c3d5c;
 	border: 1px solid transparent;
@@ -725,30 +725,23 @@ div[class*="feature"] > div {
 	background-color: #44587E;
 }
 .block_wraper div.block_info:hover + div.block_info .block_info_wraper > a {
-	border-color: rgba(255,255,255, .3);
-	background-color: rgba(68, 88, 126, 0.5);
+	border-color: rgba(255,255,255, .4);
+	background-color: rgba(68, 88, 126, 0.75);
 }
-.block_wraper .block_info_wraper:before,
-.block_wraper div.block_info.first:hover + div.block_info .block_info_wraper:before {
+.block_wraper .block_info_wraper:before {
 	content: "";
 	position: absolute;
 	z-index: 100;
 	top: 60px;
 	width: 0;
 	height: 0;
-	border-left: 20px solid rgba(255,255,255, .6);
+	border-left: 20px solid rgba(255,255,255, .9);
 	border-top: 15px solid transparent;
 	border-bottom: 15px solid transparent;
 	opacity: 0;
-	right: -20px;
-
-	-webkit-transition: all 0.2s ease-out;
-	-moz-transition: all 0.2s ease-out;
-	-o-transition: all 0.2s ease-out;
-	transition: all 0.2s ease-out;
+	right: -18px;
 }
-.block_wraper .block_info_wraper:after,
-.block_wraper div.block_info.first:hover + div.block_info .block_info_wraper:after {
+.block_wraper .block_info_wraper:after{
 	content: "";
 	position: absolute;
 	z-index: 120;
@@ -759,27 +752,31 @@ div[class*="feature"] > div {
 	border-top: 13px solid transparent;
 	border-bottom: 13px solid transparent;
 	opacity: 0;
-	right: -17px;
+	right: -16px;
 
-	-webkit-transition: all 0.2s ease-out;
-	-moz-transition: all 0.2s ease-out;
-	-o-transition: all 0.2s ease-out;
-	transition: all 0.2s ease-out;
 }
 .block_wraper .block_info_wraper:hover:before,
 .block_wraper .block_info_wraper:hover:after {
 	opacity: 1;
 }
+.block_wraper div.block_info:hover + div.block_info .block_info_wraper:after  {
+	border-left: 18px solid #0C1B31;
+}
+.block_wraper div.block_info:hover + div.block_info .block_info_wraper:before,
+.block_wraper div.block_info:hover + div.block_info .block_info_wraper:after {
+	right: auto;
+	opacity: 1;
+	left: 1px;
+	z-index: 10;
+}
+.block_wraper div.block_info.first .block_info_wraper:hover:before,
+.block_wraper div.block_info.first .block_info_wraper:hover:after,
 .block_wraper div.block_info.first:hover + div.block_info .block_info_wraper:before,
 .block_wraper div.block_info.first:hover + div.block_info .block_info_wraper:after {
-	right: 0;
-
+	display: none;
 }
 .block_wraper div.block_info.first:hover + div.block_info .block_info_wraper > a {
 	border-color: transparent;
-}
-.block_wraper div.block_info_wraper:hover + div.block_info_wraper a {
-	background-color: rgba(68, 88, 126, 0.4);
 }
 .block_wraper .block_info_wraper > a h4,
 .block_wraper .block_info.first .block_info_blank h4 {
@@ -854,8 +851,8 @@ div[class*="feature"] > div {
 	position: relative;
 }
 .explorer_info .search-control {
-	background: transparent;
-	border: 2px solid rgba(255, 255, 255, 0.2);
+	background: rgba(255, 255, 255, 0.05);
+	border: 1px solid rgba(255, 255, 255, 0.8);
 	color: #fff;
 	border-radius: none;
 	width: 100%;
@@ -872,7 +869,7 @@ div[class*="feature"] > div {
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: 100%;
-	opacity: .2;
+	opacity: .7;
 }
 .explorer_info .main_search {
 	position: absolute;
@@ -880,8 +877,8 @@ div[class*="feature"] > div {
 	left: 0;
 	right: 0;
 	padding: 40px;
-	background-color: rgba(255, 255, 255, 0.1);
-	border-top: 1px solid rgba(255, 255, 255, 0.1);
+	background-color: #0C1B31;
+	border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 .explorer_info .transactions {
 	position: absolute;
