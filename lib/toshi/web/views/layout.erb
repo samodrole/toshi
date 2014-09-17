@@ -34,31 +34,35 @@
       itemSelector: '.block',
     });
   })
+
+  $(window).scroll(function () {
+        if ($(window).scrollTop() >= 20) {
+            $('header').addClass('active');
+        }
+        if ($(window).scrollTop() < 20) {
+            $('header').removeClass('active');
+        }
+    });
   </script>
 </head>
+
 <body class="network_explorer">
   <header>
-
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <nav class="navbar navbar-default" role="navigation">
-            <div class="container-fluid clearfi">
-              <ul class="nav navbar-nav">
-                <li class="active"><a href="index.html">Home</a></li>
-                <li><a href="stats.html">Status</a></li>
-                <li><a href="stats.html">Documentation</a></li>
-              </ul>
-              <ul class="networ_status">
-                <li class="status_network active"><span>in sync</span></li>
-                <li class="select_network"><h4>Bitcoin</h4></li>
-              </ul>
-            </div><!-- /.container-fluid -->
-          </nav>
-        </div>
-      </div>
-    </div>
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid clearfi">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="index.html">Home</a></li>
+          <li><a href="stats.html">Status</a></li>
+          <li><a href="stats.html">Documentation</a></li>
+        </ul>
+        <ul class="networ_status">
+          <li class="status_network active"><span>in sync</span></li>
+          <li class="select_network"><h4>Bitcoin</h4></li>
+        </ul>
+      </div><!-- /.container-fluid -->
+    </nav>
   </header>
+
   <div class="cointainer">
     <section class="page_wraper">
       <%= yield %>

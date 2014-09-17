@@ -293,28 +293,32 @@ div[class*="feature"] > div {
 /* ==========================================================================
    Navigation
    ========================================================================== */
+.network_explorer header {
+	background-color: transparent;
+	border-bottom: 1px solid rgba(255, 255, 255, 0);
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	z-index: 1000;
+	-webkit-transition: all 0.2s linear;
+	-moz-transition: all 0.2s linear;
+	-o-transition: all 0.2s linear;
+	transition: all 0.2s linear;
+}
+.network_explorer header.active {
+	background-color: rgba(44, 61, 92, 0.7);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
 .navbar {
 	background-color: transparent;
 	border-radius: 0;
 	border: none;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
 	width: 100%;
 	z-index: 100;
-}
-.network_explorer .navbar {
-	background-color: transparent;
-	border-radius: 0;
-	border: none;
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	width: 100%;
-	z-index: 100;
+	margin: 0;
+	padding: 0;
 }
 .navbar-collapse {
 	padding:0;
@@ -338,7 +342,7 @@ div[class*="feature"] > div {
 .network_explorer .networ_status {
 	float: right;
 	padding: 0;
-	margin: 0;
+	margin: 0 10px 0 0;
 	list-style: none;
 }
 .network_explorer .networ_status li {
@@ -351,15 +355,17 @@ div[class*="feature"] > div {
 	font-size: 15px
 }
 .networ_status .select_network {
-	margin-right: 20px;
+	margin-right: 10px;
 }
 .networ_status .status_network span {
-	font-size: 12px;
+	font-size: 11px;
 	font-family: bold;
-	border: 1px solid #fff;
+	font-family: "proxima-nova-bold", sans-serif;
 	padding: 3px 10px;
 	display: inline-block;
-	margin-top: 13px;
+	margin-top: 15px;
+	color: #333;
+	background-color: #fff;
 }
 /* ==========================================================================
    Section style
@@ -654,7 +660,7 @@ div[class*="feature"] > div {
 	margin: 0 0 20px 0;
 }
 /* ==========================================================================
-   EXPLORER
+   EXPLORER STYLE
    ========================================================================== */
 .explorer_wraper {
 	position: relative;
@@ -663,63 +669,139 @@ div[class*="feature"] > div {
 }
 .explorer_info {
 	float: left;
-	height: 600px;
+	height: 448px;
 	background-color: #2c3d5c;
-	padding: 50px;
+	padding: 0px;
+	margin: 1px 0px 0px 2px;
+	position: relative !important;
 }
-.block_wraper .block_info {
-	position: relative;
+.block_wraper .block_info,
+.block_wraper .block_info.first {
+	padding: 1px;
+	height: 150px !important;
+	position: relative !important;
+	float: left !important;
+	left: 0 !important;
+	top: 0 !important;
 }
-.block_wraper .block_info > a {
+.block_wraper .block_info.first {
+	width: 150px !important;
+}
+.block_wraper .block_info_wraper,
+.block_wraper .block_info.first .block_info_wraper {
 	display: block;
 	position: absolute;
-	left: 0px;
+	left: 1px;
+	right: 1px;
+	top: 1px;
+	bottom: 1px;
+}
+.block_wraper .block_info_wraper > a,
+.block_wraper .block_info.first .block_info_blank {
+	display: block;
+	position: absolute;
+	left: 1px;
 	right: 0px;
 	top: 0px;
 	bottom: 0px;
-	padding: 15px;
+	padding: 10px;
 	background-color: #2c3d5c;
+	border: 1px solid transparent;
 	color: #fff;
 	text-decoration: none;
 	z-index: 10;
+	overflow: hidden;
 	-webkit-transition: all 0.3s ease-in-out;
 	-moz-transition: all 0.3s ease-in-out;
 	-o-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
 }
-.block_wraper .block_info > a:after {
-	content: "";
-	position: absolute;
-	left: 2px;
-	right: 2px;
-	top: 2px;
-	bottom: 2px;
-	border: 1px solid rgba(255,255,255, .1);
-	background-color: transparent;
-	z-index: 1;
-	-webkit-transition: all 0.2s ease-in;
-	-moz-transition: all 0.2s ease-in;
-	-o-transition: all 0.2s ease-in;
-	transition: all 0.2s ease-in;
+.block_wraper .block_info.first + div.block_info .block_info_wraper > a {
+	background-color: #44587E;
+	border-color: rgba(255,255,255, .2);
 }
-
-.block_wraper .block_info > a:hover {
+.block_wraper .block_info:hover a {
+	border-color: rgba(255,255,255, .6);
 	background-color: #44587E;
 }
-.block_wraper .block_info > a h4 {
+.block_wraper div.block_info:hover + div.block_info .block_info_wraper > a {
+	border-color: rgba(255,255,255, .3);
+	background-color: rgba(68, 88, 126, 0.5);
+}
+.block_wraper .block_info_wraper:before,
+.block_wraper div.block_info.first:hover + div.block_info .block_info_wraper:before {
+	content: "";
+	position: absolute;
+	z-index: 100;
+	top: 60px;
+	width: 0;
+	height: 0;
+	border-left: 20px solid rgba(255,255,255, .6);
+	border-top: 15px solid transparent;
+	border-bottom: 15px solid transparent;
+	opacity: 0;
+	right: -20px;
+
+	-webkit-transition: all 0.2s ease-out;
+	-moz-transition: all 0.2s ease-out;
+	-o-transition: all 0.2s ease-out;
+	transition: all 0.2s ease-out;
+}
+.block_wraper .block_info_wraper:after,
+.block_wraper div.block_info.first:hover + div.block_info .block_info_wraper:after {
+	content: "";
+	position: absolute;
+	z-index: 120;
+	top: 62px;
+	width: 0;
+	height: 0;
+	border-left: 18px solid #44587E;
+	border-top: 13px solid transparent;
+	border-bottom: 13px solid transparent;
+	opacity: 0;
+	right: -17px;
+
+	-webkit-transition: all 0.2s ease-out;
+	-moz-transition: all 0.2s ease-out;
+	-o-transition: all 0.2s ease-out;
+	transition: all 0.2s ease-out;
+}
+.block_wraper .block_info_wraper:hover:before,
+.block_wraper .block_info_wraper:hover:after {
+	opacity: 1;
+}
+.block_wraper div.block_info.first:hover + div.block_info .block_info_wraper:before,
+.block_wraper div.block_info.first:hover + div.block_info .block_info_wraper:after {
+	right: 0;
+
+}
+.block_wraper div.block_info.first:hover + div.block_info .block_info_wraper > a {
+	border-color: transparent;
+}
+.block_wraper div.block_info_wraper:hover + div.block_info_wraper a {
+	background-color: rgba(68, 88, 126, 0.4);
+}
+.block_wraper .block_info_wraper > a h4,
+.block_wraper .block_info.first .block_info_blank h4 {
 	margin: 0;
-	color: rgba(255,255,255, .4);
+	color: rgba(255,255,255, .2);
 	display: block;
 	font-size: 17px;
 	margin-bottom: 10px;
-	padding-bottom: 10px;
+	padding-bottom: 13px;
 	position: relative;
 	-webkit-transition: all 0.3s ease-in-out;
 	-moz-transition: all 0.3s ease-in-out;
 	-o-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
 }
-.block_wraper .block_info > a h4.block_id:after {
+.block_wraper .block_info.first .block_info_blank h4.block_id,
+.block_wraper .block_info_wraper > a h4.tx_num {
+	font-size: 36px;
+	line-height: 36px;
+}
+.block_wraper .block_info_wraper > a h4.tx_num:after, /*For Line Under*/
+.block_wraper .block_info.first .block_info_blank h4.block_id:after  {
 	content: "";
 	position: absolute;
 	left: 0px;
@@ -729,47 +811,61 @@ div[class*="feature"] > div {
 	height: 1px;
 	z-index: 1;
 }
-.block_wraper .block_info > a h4 span {
-	color: rgba(255,255,255, .4);
+.block_wraper .block_info_wraper > a h4 span,
+.block_wraper .block_info.first .block_info_blank h4 span {
+	color: rgba(255,255,255, .2);
 	display: block;
 	font-size: 12px;
+	line-height: 15px;
 	font-weight: lighter;
 	-webkit-transition: all 0.3s ease-in-out;
 	-moz-transition: all 0.3s ease-in-out;
 	-o-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
+	white-space: pre;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
-.block_wraper .block_info > a:hover h4 {
+.block_wraper .block_info_wraper > a:hover h4,
+.block_wraper .block_info.first + div.block_info .block_info_wraper > a h4 {
 	color: rgba(255,255,255, 1);
 }
-.block_wraper .block_info > a:hover h4 span {
+.block_wraper div.block_info:hover + div.block_info .block_info_wraper > a h4  {
+	color: rgba(255,255,255, .6);
+}
+.block_wraper .block_info_wraper > a:hover h4 span,
+.block_wraper .block_info.first + div.block_info .block_info_wraper > a h4  span,
+.block_wraper .block_info.first .block_info_blank h4,
+.block_wraper .block_info.first .block_info_blank h4 span {
 	color: rgba(255,255,255, .8);
 }
-.block_wraper .block_info > a:hover:after {
+.block_wraper div.block_info:hover + div.block_info .block_info_wraper > a h4 span  {
+	color: rgba(255,255,255, .4);
+}
+.block_wraper .block_info_wraper > a:hover:after {
 	border: 1px solid rgba(255,255,255, .5);
 }
-
-
-
-.explorer_info .section_title,
-.explorer_info .search {
+.explorer_info .section_title{
 	margin-bottom: 20px;
 	padding-bottom: 20px;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.explorer_info .search {
+	position: relative;
 }
 .explorer_info .search-control {
-	background: rgba(255, 255, 255, 0.1);
-	border:none;
+	background: transparent;
+	border: 2px solid rgba(255, 255, 255, 0.2);
 	color: #fff;
 	border-radius: none;
 	width: 100%;
-	padding: 10px;
+	padding: 10px 30px 10px 10px;
 }
-.explorer_info .search-control:after {
+.explorer_info .search:after {
 	content: "";
 	position: absolute;
-	right: 5px;
-	top: 13px;
+	right: 10px;
+	top: 14px;
 	width: 15px;
 	height: 15px;
 	background-image: url("../images/search_icon.png");
@@ -778,42 +874,126 @@ div[class*="feature"] > div {
 	background-size: 100%;
 	opacity: .2;
 }
-/*.transactions h4 {
-	color: #C6CEDD;
-	margin-bottom: 20px;
+.explorer_info .main_search {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 40px;
+	background-color: rgba(255, 255, 255, 0.1);
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
-.transactions ul {
-	list-style: none;
-	margin:0;
-	padding: 0;
+.explorer_info .transactions {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	padding: 30px 40px 40px 40px;
 }
-.transactions li {
-	margin-bottom:10px;
-}
-.transactions li span {
-	padding: 5px 0;
-	background-color: #C6CEDD;
-	height: 20px;
-	width: 2px;
+.network_explorer .transactions h4 {
+	color: #fff;
+	margin: 0;
+	padding-right: 5px;
+	background-color: #2c3d5c;
+	position: relative;
+	z-index: 10;
 	display: inline-block;
+}
+.explorer_info .transaction_solo {
+	margin-top: 20px;
+}
+.explorer_info .transaction_solo a {
+	color: rgba(255, 255, 255, 0.55);
+	display: block;
+	-webkit-transition: all 0.2s ease-out;
+	-moz-transition: all 0.2s ease-out;
+	-o-transition: all 0.2s ease-out;
+	transition: all 0.2s ease-out;
+}
+.explorer_info .transaction_solo a:hover {
+	color: rgba(255, 255, 255, 1);
+}
+.explorer_info .transaction_solo a h5,
+.explorer_info .transaction_solo a div > div {
+	float: left;
+	display: inline-block;
+	line-height: 16px;
+}
+.explorer_info .transaction_solo a h5 {
+	color: rgba(255, 255, 255, 0.7);
+	margin: 0 5px 0 0;
+}
+.explorer_info .transaction_solo a .fee {
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.explorer_info .transaction_solo a .tx > div {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 90%;
+}
+.transactions .knight_rider {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	position: absolute;
+	right: -20px;
+	top: 97px;
+	z-index: 1;
+}
+.transactions .knight_rider li {
+	float: left;
+	margin: 0 2px 0 0;
+	display: block;
+	height: 2px;
+	width: 5px;
+	background-color: rgba(255, 255, 255, 0.5);
 
 	-webkit-animation-name: fadeIn;
 	animation-name: fadeIn;
-	-webkit-animation-duration: 1s;
-	animation-duration: 1s;
+	-webkit-animation-duration: 2.5s;
+	animation-duration: 2.5s;
 	-webkit-animation-fill-mode: ease-in-out;
 	animation-fill-mode: ease-in-out;
 	-webkit-animation-iteration-count: infinite;
     animation-iteration-count: infinite;
 }
-.transactions li a {
-	padding: 5px 10px;
-	border:	1px solid rgba(255, 255, 255, 0.2);
-	color: #C6CEDD;
-	border-radius: 20px;
-	display: inline-block;
-	font-size: 13px;
-}*/
+.knight_rider li.r-1 {
+	-webkit-animation-delay: .2s;
+	animation-delay: .2s;
+}
+.knight_rider li.r-2 {
+	-webkit-animation-delay: .4s;
+	animation-delay: .4s;
+}
+.knight_rider li.r-3 {
+	-webkit-animation-delay: .6s;
+	animation-delay: .6s;
+}
+.knight_rider li.r-4 {
+	-webkit-animation-delay: .8s;
+	animation-delay: .8s;
+}
+.knight_rider li.r-5 {
+	-webkit-animation-delay: 1s;
+	animation-delay: 1s;
+}
+.knight_rider li.r-6 {
+	-webkit-animation-delay: 1.2s;
+	animation-delay: 1.2s;
+}
+.knight_rider li.r-7 {
+	-webkit-animation-delay: 1.4s;
+	animation-delay: 1.4s;
+	background-color: rgba(255, 255, 255, 0.6);
+}
+.knight_rider li.r-8 {
+	-webkit-animation-delay: 1.6s;
+	animation-delay: 1.6s;
+	background-color: rgba(255, 255, 255, 0.8);
+}
+
 /* ==========================================================================
    Footer
    ========================================================================== */
