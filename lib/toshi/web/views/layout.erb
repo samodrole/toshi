@@ -29,15 +29,27 @@
   <script src="js/main.js"></script>
 
   <script type="text/javascript">
+    $(window).scroll(function () {
+      if ($(window).scrollTop() >= 20) {
+          $('header').addClass('active');
+      }
+      if ($(window).scrollTop() < 20) {
+          $('header').removeClass('active');
+      }
+    });
 
-
-  $(window).scroll(function () {
-        if ($(window).scrollTop() >= 20) {
-            $('header').addClass('active');
+    $(document).ready(function() {
+      $('.block_info.block').hover(
+        function() {
+          $(this).prev().addClass('next-block');
+          $(this).addClass('selected-block');
+          $(this).next().addClass('prev-block');
+        }, function() {
+          $(this).prev().removeClass('next-block');
+          $(this).removeClass('selected-block');
+          $(this).next().removeClass('prev-block');
         }
-        if ($(window).scrollTop() < 20) {
-            $('header').removeClass('active');
-        }
+      );
     });
   </script>
 </head>

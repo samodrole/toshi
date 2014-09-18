@@ -2,39 +2,37 @@
   <div class="block_wraper clearfix">
 
     <div class="explorer_info block" style="width: 40%">
-        <div class="transactions">
-            <h4>Live Transactions</h4>
-            <ul class="knight_rider">
-              <li class="r-1"></li>
-              <li class="r-2"></li>
-              <li class="r-3"></li>
-              <li class="r-4"></li>
-              <li class="r-5"></li>
-              <li class="r-6"></li>
-              <li class="r-7"></li>
-              <li class="r-8"></li>
-            </ul>
-          
-            <div class="transaction_solo">
-              <a href="#">
-                <div class="fee clearfix">
-                   <h5>Fee:</h5>
-                   <div>
-                    <span class="tx_fee">-0.3476000 BTC</span>
-                   </div>
+      <div class="transactions">
+          <h4>Live Transactions</h4>
+          <ul class="knight_rider">
+            <li class="r-1"></li>
+            <li class="r-2"></li>
+            <li class="r-3"></li>
+            <li class="r-4"></li>
+            <li class="r-5"></li>
+            <li class="r-6"></li>
+            <li class="r-7"></li>
+            <li class="r-8"></li>
+          </ul>
+
+          <div class="transaction_solo">
+            <a href="#">
+              <div class="fee clearfix">
+                 <h5>Fee:</h5>
+                 <div>
+                  <span class="tx_fee">-0.3476000 BTC</span>
                  </div>
-                 <div class="tx clearfix">
-                   <h5>Tx:</h5>
-                   <div>
-                    <span class="tx_num">42d618b3f2e3771c23d6a043e2ce138fbe6922404d1f00279b4308c2b1ff28b1</span>
-                   </div>
-                 </div> 
-                 
-              </a>
-            </div>
-        </div>
+               </div>
+               <div class="tx clearfix">
+                 <h5>Tx:</h5>
+                 <div>
+                  <span class="tx_num">42d618b3f2e3771c23d6a043e2ce138fbe6922404d1f00279b4308c2b1ff28b1</span>
+                 </div>
+               </div>
 
-
+            </a>
+          </div>
+      </div>
       <div class="main_search">
         <div class="section_title">
           <h2>Search <span>search in network for address, block, transaction</span>
@@ -56,11 +54,11 @@
     </div>
 
     <% Toshi::Models::Block.main_branch.limit(100).order(Sequel.desc(:height)).each{|block| %>
-    <% block_size = rand(100..300) %>
-    <div class="block_info block" style="height: 150px; width: <%= block_size %>px">
+    <% block_width = 150 + ((block.transactions_count / 1000) * 100) +  ((block.transactions_count / 1000.0).modulo(1) * 100).to_i %>
+    <div class="block_info block" style="height: 150px; width: <%= block_width %>px">
       <div class="block_info_wraper">
         <a href="#">
-          <h4 class="tx_num"><%= block.height %><span>Num. of Transactions</span></h4>
+          <h4 class="tx_num"><%= block.transactions_count %><span>Num. of Transactions</span></h4>
           <h4 class="block_id"><%= block.height %><span>Block Height</span></h4>
         </a>
       </div>

@@ -14,9 +14,19 @@ module Toshi
         @blocks_count = Toshi.db[:blocks].where(branch: 0).count
         @side_blocks_count = Toshi.db[:blocks].where(branch: 1).count
         @orphan_blocks_count = Toshi.db[:blocks].where(branch: 2).count
-
-        content_type 'text/html'
         erb :index
+      end
+
+      get '/blocks' do
+        erb :blocks
+      end
+
+      get '/transactions' do
+        erb :transactions
+      end
+
+      get '/addresses' do
+        erb :addresses
       end
 
       get '/websockets' do
