@@ -82,7 +82,12 @@
       })   
     });
 
-    $('.sidebar_wraper').height($(window).height());
+    // $('.sidebar_wraper').height($(window).height());
+
+
+    $(window).on('load resize', function(){
+        $('.sidebar_wraper').height($(this).height());
+    });   
 
     $(document).ready(function() {
       $('.hexagon-wrapper.block').hover(
