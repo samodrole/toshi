@@ -9,16 +9,18 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/admin.css">
+   <link rel="stylesheet" href="css/component.css">
 
-  <meta property="og:title" content="Toshi - Open source Bitcoin Node">
+
+  <meta property="og:title" content="Toshi Explorer - Open source Bitcoin, Litecoin Explorer">
   <meta property="og:description" content="Toshi is a built on top of Ruby and PostgreSQL. It’s 100% Open source">
   <meta property="og:image" content="https://coinbase.com/assets/toshi/og-toshi.jpg">
   <meta property="og:type" content="website">
-  <meta itemprop="name" content="Toshi - Open source Bitcoin Node">
+  <meta itemprop="name" content="Toshi Explorer - Open source Bitcoin, Litecoin Explorer">
   <meta itemprop="description" content="Toshi is a built on top of Ruby and PostgreSQL. It’s 100% Open source">
   <meta itemprop="image" content="https://coinbase.com/assets/toshi/og-toshi.jpg">
 
-  <link rel="shortcut icon" href="/images/favicon1.ico">
+  <link rel="shortcut icon" href="/images/favicon.ico">
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="js/plugins.js"></script>
@@ -26,20 +28,64 @@
   <script src="js/moment.js"></script>
   <script src="js/handlebars-v2.0.0.js"></script>
   <script src="js/packery.pkgd.min.js"></script>
+
+  
+
   <script src="js/main.js"></script>
 
   <script type="text/javascript">
+
+    var currScrollTop = $(window).scrollTop();
     $(window).scroll(function () {
-      if ($(window).scrollTop() >= 20) {
-          $('header').addClass('active');
-      }
-      if ($(window).scrollTop() < 20) {
-          $('header').removeClass('active');
+      var nextScrollTop = $(window).scrollTop();
+      if (nextScrollTop - currScrollTop > 200) {
+          $('body').addClass('scrollactive');
+          currScrollTop = nextScrollTop;
+      } else if (nextScrollTop - currScrollTop < -80) {
+          $('body').removeClass('scrollactive');
+          currScrollTop = nextScrollTop;
       }
     });
 
+    $(window).scroll(function () {
+      if ($(window).scrollTop() >= 30) {
+          $('.main_chain').addClass('active');
+      }
+      if ($(window).scrollTop() < 30) {
+          $('.main_chain').removeClass('active');
+      }
+    });
+
+    $(window).scroll(function () {
+      if ($(window).scrollTop() >= 600) {
+          $('.page_wraper').addClass('active');
+      }
+      if ($(window).scrollTop() < 600) {
+          $('.page_wraper').removeClass('active');
+      }
+    });
+
+    $(function() {
+      var limitSize = function (val, min, max) {
+        var ret = Math.max(val, min);
+        return Math.min(max, ret);
+      }
+
+      $(".hexagon-wrapper").each(function (i, el) {
+        var $el = $(el);
+        var width = $el.width();
+        var constant = 6, minFontSize = 13, maxFontSize = 45;
+        var newFontSize = limitSize(width / constant, minFontSize, maxFontSize)
+        $el.find('h4.tx_num').css('font-size', newFontSize + 'px')
+        var newFontSizeBlockId = limitSize(newFontSize - 12, minFontSize, maxFontSize);
+        $el.find('h4.block_id').css('font-size', newFontSizeBlockId + 'px')
+      })   
+    });
+
+    $('.sidebar_wraper').height($(window).height());
+
     $(document).ready(function() {
-      $('.block_info.block').hover(
+      $('.hexagon-wrapper.block').hover(
         function() {
           $(this).prev().addClass('next-block');
           $(this).addClass('selected-block');
@@ -50,7 +96,18 @@
           $(this).next().removeClass('prev-block');
         }
       );
+
+      $('.main_chain_wraper .block').first().addClass('active')
+
+      var intervalID = window.setInterval(load_tx, 1000);
     });
+
+    function load_tx() {
+      $('.new_tx_wraper > a').last().remove();
+      var el = $('.new_tx_wraper > a').last().clone()
+      $('.new_tx_wraper > a').last().addClass('active')
+      $('.new_tx_wraper').prepend(el)
+    }
   </script>
 </head>
 
@@ -58,34 +115,79 @@
   <header>
     <nav class="navbar navbar-default" role="navigation">
       <div class="container-fluid clearfi">
+        <a href="/" class="toshi_logo">Toshi Bitcoin network Explorer</a>
         <ul class="nav navbar-nav">
           <li class="active"><a href="index.html">Home</a></li>
           <li><a href="stats.html">Status</a></li>
           <li><a href="stats.html">Documentation</a></li>
         </ul>
-        <ul class="networ_status">
-          <li class="status_network active"><span>in sync</span></li>
-          <li class="select_network"><h4>Bitcoin</h4></li>
+        <ul class="network_status syncing">
+          <li class="dropdown select_network">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              <h4>Bitcoin <span>(BTC)</span></h4> <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="">Litecoin (LTC)</a></li>
+              <li><a href="">Battlecoin (BCX)</a></li>
+              <li><a href="">Lycancoin (LYC)</a></li>
+              <li><a href="">DNotes (NOTE)</a></li>
+              <li><a href="">Digitalcoin (DGC)</a></li>
+              <li><a href="">Viacoin (VIA)</a></li>
+              <li><a href="">Earthcoin (EAC)</a></li>
+              <li><a href="">Bitmark (BTM)</a></li>
+              <li><a href="">RonPaulcoin (RPC)</a></li>
+              <li><a href="">eMark (DEM)</a></li>
+              <li><a href="">Quatloo (QTL)</a></li>
+              <li><a href="">Worldcoin (WDC)</a></li>
+            </ul>
+          </li> 
         </ul>
       </div><!-- /.container-fluid -->
     </nav>
   </header>
 
-  <div class="cointainer">
-    <section class="page_wraper">
+
+    <div id="top" class="page_wraper clearfix">
       <%= yield %>
     </section>
-  </div>
-</section>
 
-  <footer>
-    <div class="text-center">
-      <div class="">
-        <p>Toshi is 100% open source and maintained by
-          <a href="https://coinbase.com/" target="_blank" class="coinbase_logo">Coinbase</a>
-        </p>
-      </div>
-    </div>
-  </footer>
+    <section class="share_wraper">            
+           <a href="#" class="share">
+            <svg viewBox="0 0 177 205" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+               <path d="M88.5,13.2628005 L165.781682,57.8814002 L165.781682,147.1186 L88.5,191.7372 L11.2183183,147.1186 L11.2183183,57.8814002 L88.5,13.2628005 Z" id="Polygon-1" stroke-opacity="0.3" stroke="#85a4d7" stroke-width="6" fill="#2C3D5C" sketch:type="MSShapeGroup"></path>
+            </svg>
+           </a>
+           <a href="#" class="facebook">
+               <svg viewBox="0 0 177 205" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <path d="M88.5,13.2628005 L165.781682,57.8814002 L165.781682,147.1186 L88.5,191.7372 L11.2183183,147.1186 L11.2183183,57.8814002 L88.5,13.2628005 Z" id="Polygon-1" stroke-opacity="0.3" stroke="#85a4d7" stroke-width="6" fill="#2C3D5C" sketch:type="MSShapeGroup"></path>
+            </svg>
+           </a>
+           <a href="#" class="twitter">
+               <svg viewBox="0 0 177 205" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <path d="M88.5,13.2628005 L165.781682,57.8814002 L165.781682,147.1186 L88.5,191.7372 L11.2183183,147.1186 L11.2183183,57.8814002 L88.5,13.2628005 Z" id="Polygon-1" stroke-opacity="0.3" stroke="#85a4d7" stroke-width="6" fill="#2C3D5C" sketch:type="MSShapeGroup"></path>
+            </svg>
+           </a>
+           <a href="#" class="google">
+               <svg viewBox="0 0 177 205" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <path d="M88.5,13.2628005 L165.781682,57.8814002 L165.781682,147.1186 L88.5,191.7372 L11.2183183,147.1186 L11.2183183,57.8814002 L88.5,13.2628005 Z" id="Polygon-1" stroke-opacity="0.3" stroke="#85a4d7" stroke-width="6" fill="#2C3D5C" sketch:type="MSShapeGroup"></path>
+            </svg>
+           </a>
+           <a href="#" class="reddit">
+               <svg viewBox="0 0 177 205" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <path d="M88.5,13.2628005 L165.781682,57.8814002 L165.781682,147.1186 L88.5,191.7372 L11.2183183,147.1186 L11.2183183,57.8814002 L88.5,13.2628005 Z" id="Polygon-1" stroke-opacity="0.3" stroke="#85a4d7" stroke-width="6" fill="#2C3D5C" sketch:type="MSShapeGroup"></path>
+            </svg>
+           </a>
+      </section> <!-- SHARE -->
+
+    <a class="back_up" href="#top">
+      <svg viewBox="0 0 177 205" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <path d="M88.5,13.2628005 L165.781682,57.8814002 L165.781682,147.1186 L88.5,191.7372 L11.2183183,147.1186 L11.2183183,57.8814002 L88.5,13.2628005 Z" id="Polygon-1" stroke-opacity="0.3" stroke="#85a4d7" stroke-width="6" fill="#2C3D5C" sketch:type="MSShapeGroup"></path>
+      </svg>
+    </a>
+    <script src="js/TweenLite.min.js"></script>
+  <script src="js/EasePack.min.js"></script>
+  <script src="js/rAF.js"></script>
+  <script src="js/demo-1.js"></script>
+      
 </body>
 </html>

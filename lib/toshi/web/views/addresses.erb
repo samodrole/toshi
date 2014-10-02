@@ -1,0 +1,121 @@
+<div class="sidebar_wraper address_view">
+  <section class="sidebar">
+
+     <div class="main_search" style="display:none;">
+      <div class="section_title">
+        <h2>Search <span>search in network for address, block, transaction</span>
+        </h2>
+         <div class="search">
+            <input type="email" class="search-control" id="exampleInputEmail1" placeholder="Type in address, block, transaction">
+          </div>
+      </div>
+    </div>
+
+    <div class="address_stats stats">
+    <h3>ADDRESS</h3>
+      <ul class="clearfix">
+        <li class="clearfix col-xs-12">
+          <h3>ADDRESS HASH</h3>
+          <p>1MZ2HkA41XhnFBwqnnDNQ5h4X1Q2JJMCXQ</p>
+        </li>
+        <li class="clearfix col-md-4 col-xs-12">
+          <h3>BALANCE</h3>
+          <p>120.00000000 <span>BTC</span></p>
+        </li>
+        <li class="clearfix address_stats_uncon col-md-4 col-xs-12 margin-left">
+          <h3>Unconfirmed</h3>
+          <p>10.00000000 <span>BTC</span></p>
+        </li>
+        <li class="clearfix col-md-4 col-xs-12 margin-left">
+          <h3>Transactions</h3>
+          <p>5</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="api_links_wraper stats">
+      <h3>GET API for ADDRESS</h3>
+      <div class="api_links">
+        <a href="#">get address</a>
+        <a href="#">get address tx</a>
+        <a href="#">get address balance</a>
+      </div>
+    </div>
+
+    <div class="coin_chain">
+     <div class="info_nav">
+        <a class="info_next" href="">
+          <h5>NEXT:<span>WHAT IS AN ADDRESS?</span></h5>
+           <svg viewBox="0 0 177 205" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+             <path d="M88.5,13.2628005 L165.781682,57.8814002 L165.781682,147.1186 L88.5,191.7372 L11.2183183,147.1186 L11.2183183,57.8814002 L88.5,13.2628005 Z" id="Polygon-1" stroke-opacity="0.3" stroke="#85a4d7" stroke-width="8" fill="#2C3D5C" sketch:type="MSShapeGroup"></path>
+          </svg>
+        </a>
+        <a class="info_prev" href="">
+           <svg viewBox="0 0 177 205" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+             <path d="M88.5,13.2628005 L165.781682,57.8814002 L165.781682,147.1186 L88.5,191.7372 L11.2183183,147.1186 L11.2183183,57.8814002 L88.5,13.2628005 Z" id="Polygon-1" stroke-opacity="0.3" stroke="#85a4d7" stroke-width="8" fill="#2C3D5C" sketch:type="MSShapeGroup"></path>
+          </svg>
+        </a>
+     </div>
+
+    <div class="section_title explain clearfix">
+      <h3>What is AN ADDRESS</h3>
+      <p>A Bitcoin address, or simply address, is an identifier of 26-34 alphanumeric characters, beginning with the number 1 or 3, that represents a possible destination for a Bitcoin payment. Addresses can be generated at no cost by any user of Bitcoin. For example, using Bitcoin-Qt, one can click "New Address" and be assigned an address. It is also possible to get a Bitcoin address using an account at an exchange or online wallet service.</p>
+
+      <h5>A Bitcoin address is a single-use token</h5>
+      <p>Like e-mail addresses, you can send bitcoins to a person by sending bitcoins to one of their addresses. However, unlike e-mail addresses, people have many different Bitcoin addresses and a unique address should be used for each transaction. Most Bitcoin software and websites will help with this by generating a brand new address each time you create an invoice or payment request.</p>
+
+      <h5>Address validation</h5>
+      <p>If you would like to validate a Bitcoin address in an application, it is advisable to use a method from this thread rather than to just check for string length, allowed characters, or that the address starts with a 1 or 3.</p>
+      <a href="#" target="_blank">ream more on Wikipedia</a>
+    </div> 
+  </div>
+    <footer>
+            <p>Toshi Explorer by
+            <a href="https://coinbase.com/" target="_blank" class="coinbase_logo">Coinbase</a></p>
+      </footer>
+
+  </section><!-- sidebar -->
+</div><!-- sidebar_wraper -->
+
+<section class="chain_wraper clearfix address_view">
+  <div class="main_chain clearfix">
+  <div class="tx_filter_wraper">
+    <h5>Show Address tx</h5>
+    <ul class="tx_filter">
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              <h4>All tx <span>(BTC)</span></h4> <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="">Input tx (BTC)</a></li>
+              <li><a href="">Output tx (BTC)</a></li>
+            </ul>
+          </li> 
+        </ul>
+  </div>
+
+    <div class="main_chain_wraper">
+      <% i = 0 %>
+      <% Toshi::Models::Block.main_branch.limit(100).order(Sequel.desc(:height)).each{|block| %>
+      <% i += 1  %>
+      <div class="address_tree_balance">
+        <h4 class="tx_tree">2.98300000 <span>BTC</span></h4>
+      </div>
+      <a href="#" class="address_tree_wraper <%= (rand(1..10)%3 == 0) ? 'out' : 'in' %> clearfix">
+        <div>
+          <div class="tx_tree_wraper">
+            <h4 class="tx_tree">2.98300000 <span>BTC</span></h4>
+            <p><strong>43</strong> Con. | 09.12.204 | 23:12</p>
+          </div>
+          <span class="tx-indicator"></span>
+        </div>
+      </a>
+     <% } %>
+    </div>
+
+
+  </div>
+
+</section><!-- chain_wraper -->
+
+

@@ -1,0 +1,147 @@
+<div class="sidebar_wraper block_view">
+  <section class="sidebar">
+
+     <div class="main_search" style="display:none;">
+      <div class="section_title">
+        <h2>Search <span>search in network for address, block, transaction</span>
+        </h2>
+         <div class="search">
+            <input type="email" class="search-control" id="exampleInputEmail1" placeholder="Type in address, block, transaction">
+          </div>
+      </div>
+    </div>
+
+    <div class="block_stats stats">
+    <h3>BLOCK <span>281978</span></h3>
+      <ul class="clearfix">
+        <li class="clearfix col-md-5 col-xs-12">
+          <h3>Height</h3>
+          <p>322054</p>
+        </li>
+        <li class="clearfix col-md-7 col-xs-12 margin-left">
+          <h3>Block time</h3>
+          <p>2014-09-22 | 11:11:21</p>
+        </li>
+        <li class="clearfix col-md-7 col-xs-12">
+          <h3>Trades sum</h3>
+          <p>3,398.65290418 <span>BTC</span></p>
+        </li>
+        <li class="clearfix col-md-5 col-xs-12 margin-left">
+          <h3>Difficulty</h3>
+          <p>29,829,733,124.04</p>
+        </li>
+        <li class="clearfix col-md-5 col-xs-12">
+          <h3>Fee</h3>
+          <p>0.03327430 <span>BTC</span></p>
+        </li>
+        <li class="clearfix col-md-7 col-xs-12 margin-left">
+          <h3>Size</h3>
+          <p>158.40 <span>kB</span></p>
+        </li>
+        <li class="clearfix col-md-7 col-xs-12">
+          <h3>Confirmations</h3>
+          <p>158</p>
+        </li>
+        <li class="clearfix col-md-5 col-xs-12 margin-left">
+          <h3>Nb txs</h3>
+          <p>40</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="block_tx_wraper stats">
+    	<h3>TRANSACTIONS <span>in block</span></h3>
+
+    	<ul class="clearfix">
+    		<li>
+		    	<a href="#" class="block_tx clearfix">
+		    	<h3>coinbase</h3>
+		    		<div class="tx_hash">
+		    			<p>dc99ad22bef37db2c92a499dd5e672178c179b5a4de6a8a0eff99893eb7d10f0</p> 
+		    		</div>
+		    		<div class="tx_fee">
+		    			<p>50.044 <span>BTC</span></p>
+		    		</div>
+		    	</a>
+	    	</li>
+<!-- 	    	<li>
+		    	<a href="#" class="block_tx clearfix">
+		    		<div class="tx_hash">
+		    			<p>dc99ad22bef37db2c92a499dd5e672178c179b5a4de6a8a0eff99893eb7d10f0</p> 
+		    		</div>
+		    		<div class="tx_fee">
+		    			<p>5.044 <span>BTC</span></p>
+		    		</div>
+		    	</a>
+	    	</li> -->
+    	</ul>
+    	<div class="tx_link">
+    		<a href="#">view all transactions</a>
+    	</div>
+    </div>
+
+    <div class="api_links_wraper stats">
+    	<h3>GET API for BLOCK</h3>
+    	<div class="api_links">
+    		<a href="#">get block</a>
+    		<a href="#">get block height</a>
+    		<a href="#">nb. tx in block</a>
+    	</div>
+    </div>
+
+    <div class="coin_chain">
+     <div class="info_nav">
+        <a class="info_next" href="">
+          <h5>NEXT:<span>WHAT IS TRANSACTION?</span></h5>
+           <svg viewBox="0 0 177 205" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+             <path d="M88.5,13.2628005 L165.781682,57.8814002 L165.781682,147.1186 L88.5,191.7372 L11.2183183,147.1186 L11.2183183,57.8814002 L88.5,13.2628005 Z" id="Polygon-1" stroke-opacity="0.3" stroke="#85a4d7" stroke-width="8" fill="#2C3D5C" sketch:type="MSShapeGroup"></path>
+          </svg>
+        </a>
+        <a class="info_prev" href="">
+           <svg viewBox="0 0 177 205" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+             <path d="M88.5,13.2628005 L165.781682,57.8814002 L165.781682,147.1186 L88.5,191.7372 L11.2183183,147.1186 L11.2183183,57.8814002 L88.5,13.2628005 Z" id="Polygon-1" stroke-opacity="0.3" stroke="#85a4d7" stroke-width="8" fill="#2C3D5C" sketch:type="MSShapeGroup"></path>
+          </svg>
+        </a>
+     </div>
+
+    <div class="section_title explain clearfix">
+      <h3>What is Block</h3>
+      <p>For any block on the chain, there is only one path to the genesis block. Coming from the genesis block, however, there can be forks. One-block forks are created from time to time when two blocks are created just a few seconds apart. When that happens, generating nodes build onto whichever one of the blocks they received first. Whichever block ends up being included in the next block becomes part of the main chain because that chain is longer. More serious forks have occurred after fixing bugs that required backward-incompatible changes.</p>
+      <a href="#" target="_blank">ream more on Wikipedia</a>
+    </div> 
+  </div>
+
+    <footer>
+            <p>Toshi Explorer by
+            <a href="https://coinbase.com/" target="_blank" class="coinbase_logo">Coinbase</a></p>
+      </footer>
+
+	</section><!-- sidebar -->
+</div><!-- sidebar_wraper -->
+
+<section class="chain_wraper clearfix block_view">
+  <div class="main_chain clearfix">
+  	<div class="main_chain_wraper">
+      <% Toshi::Models::Block.main_branch.limit(100).order(Sequel.desc(:height)).each{|block| %>
+      <% block_width = 150 + ((block.transactions_count / 1000) * 10) +  ((block.transactions_count / 1000.0).modulo(1) * 100).to_i %>
+	      <a href="/blocks" class="hexagon-wrapper block" style="height: <%= block_width + 20 %>px; width: <%= block_width %>px">
+
+	          <div class="block_info">
+	              <h4 class="tx_num"><%= block.transactions_count %><span>Transactions</span></h4>
+	            <h4 class="block_id"><%= block.height %><span>Block Height</span></h4>
+	          </div>
+
+	          <svg  viewBox="0 0 177 205" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	             <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+	                <path d="M88.5,0.73828125 L176.628234,51.6191406 L176.628234,153.380859 L88.5,204.261719 L0.37176643,153.380859 L0.37176643,51.6191406 L88.5,0.73828125 Z" id="path-1" opacity="0.4" fill="#2C3D5C" sketch:type="MSShapeGroup"></path>
+	                <path d="M88.5,13.2628005 L165.781682,57.8814002 L165.781682,147.1186 L88.5,191.7372 L11.2183183,147.1186 L11.2183183,57.8814002 L88.5,13.2628005 Z" id="Polygon-1" stroke-opacity="0" stroke="#85a4d7" stroke-width="2" fill="#2C3D5C" sketch:type="MSShapeGroup"></path>
+	            </g>
+	          </svg>
+	      </a>
+       <% } %>
+    </div>
+  </div>
+
+</section><!-- chain_wraper -->
+
+

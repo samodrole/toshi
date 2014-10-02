@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="157px" height="183px" viewBox="0 0 157 183" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.0.4 (8054) - http://www.bohemiancoding.com/sketch -->
+    <title>Slice 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="78.4981084 0.684570312 156.278914 45.5913394 156.278914 135.404877 78.4981084 180.311646 0.717302811 135.404877 0.717302811 45.5913394 "></polygon>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Polygon-2">
+            <use fill="#4D6B9D" fill-rule="evenodd" sketch:type="MSShapeGroup" xlink:href="#path-1"></use>
+            <use fill="none" xlink:href="#path-1"></use>
+        </g>
+        <polygon id="Polygon-1" fill="#162640" sketch:type="MSShapeGroup" points="78.5 1.26280048 155.781682 45.8814002 155.781682 135.1186 78.5 179.7372 1.21831825 135.1186 1.21831825 45.8814002 "></polygon>
+    </g>
+</svg>

@@ -1,68 +1,119 @@
-<div class="explorer_wraper">
-  <div class="block_wraper clearfix">
+<div class="sidebar_wraper home">
+  <section class="sidebar">
 
-    <div class="explorer_info block" style="width: 40%">
-      <div class="transactions">
-          <h4>Live Transactions</h4>
-          <ul class="knight_rider">
-            <li class="r-1"></li>
-            <li class="r-2"></li>
-            <li class="r-3"></li>
-            <li class="r-4"></li>
-            <li class="r-5"></li>
-            <li class="r-6"></li>
-            <li class="r-7"></li>
-            <li class="r-8"></li>
-          </ul>
-
-          <div class="transaction_solo">
-            <a href="#">
-              <div class="fee clearfix">
-                 <h5>Fee:</h5>
-                 <div>
-                  <span class="tx_fee">-0.3476000 BTC</span>
-                 </div>
-               </div>
-               <div class="tx clearfix">
-                 <h5>Tx:</h5>
-                 <div>
-                  <span class="tx_num">42d618b3f2e3771c23d6a043e2ce138fbe6922404d1f00279b4308c2b1ff28b1</span>
-                 </div>
-               </div>
-
-            </a>
+     <div class="main_search">
+      <div class="section_title">
+        <h2>Search <span>search in network for address, block, transaction</span>
+        </h2>
+         <div class="search">
+            <input type="email" class="search-control" id="exampleInputEmail1" placeholder="Type in address, block, transaction">
           </div>
       </div>
-      <div class="main_search">
-        <div class="section_title">
-          <h2>Search <span>search in network for address, block, transaction</span>
-          </h2>
-        </div>
-        <div class="search">
-          <input type="email" class="search-control" id="exampleInputEmail1" placeholder="Type in address, block, transaction">
-        </div>
-      </div>
     </div>
 
-    <div class="block_info first">
-      <div class="block_info_wraper">
-        <div class="block_info_blank">
-          <h4 class="block_id">3<span>Num. of Transactions</span></h4>
-          <h4 class="tx_num">01'23"<span>Time from last block</span></h4>
-        </div>
-      </div>
-    </div>
-
-    <% Toshi::Models::Block.main_branch.limit(100).order(Sequel.desc(:height)).each{|block| %>
-    <% block_width = 150 + ((block.transactions_count / 1000) * 100) +  ((block.transactions_count / 1000.0).modulo(1) * 100).to_i %>
-    <div class="block_info block" style="height: 150px; width: <%= block_width %>px">
-      <div class="block_info_wraper">
-        <a href="#">
-          <h4 class="tx_num"><%= block.transactions_count %><span>Num. of Transactions</span></h4>
-          <h4 class="block_id"><%= block.height %><span>Block Height</span></h4>
+    <div class="coin_chain">
+     <div class="info_nav">
+        <a class="info_next" href="">
+          <h5>NEXT:<span>WHAT IS AN ADDRESS?</span></h5>
+           <svg viewBox="0 0 177 205" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+             <path d="M88.5,13.2628005 L165.781682,57.8814002 L165.781682,147.1186 L88.5,191.7372 L11.2183183,147.1186 L11.2183183,57.8814002 L88.5,13.2628005 Z" id="Polygon-1" stroke-opacity="0.3" stroke="#85a4d7" stroke-width="6" fill="#2C3D5C" sketch:type="MSShapeGroup"></path>
+          </svg>
         </a>
-      </div>
-    </div>
-    <% } %>
+        <a class="info_prev" href="">
+           <svg viewBox="0 0 177 205" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+             <path d="M88.5,13.2628005 L165.781682,57.8814002 L165.781682,147.1186 L88.5,191.7372 L11.2183183,147.1186 L11.2183183,57.8814002 L88.5,13.2628005 Z" id="Polygon-1" stroke-opacity="0.3" stroke="#85a4d7" stroke-width="6" fill="#2C3D5C" sketch:type="MSShapeGroup"></path>
+          </svg>
+        </a>
+     </div>
+
+    <div class="section_title explain clearfix">
+      <h3>What is BlockChain?</h3>
+      <p>A block chain is a transaction database shared by all nodes participating in a system based on the Bitcoin protocol. A full copy of a currency's block chain contains every transaction<img src="../images/blockchain_img.png"> ever executed in the currency. With this information, one can find out how much value belonged to each address at any point in history.</p>
+
+      <p>
+        Every block contains a hash of the previous block. This has the effect of creating a chain of blocks from the genesis block to the current block. Each block is guaranteed to come after the previous block chronologically because the previous block's hash would otherwise not be known. Each block is also computationally impractical to modify once it has been in the chain for a while because every block after it would also have to be regenerated. These properties are what make double-spending of bitcoins very difficult. The block chain is the main innovation of Bitcoin.
+      </p>
+      <a href="#" target="_blank">ream more on Wikipedia</a>
+    </div> 
   </div>
-</div>
+    <footer>
+          <p>Toshi Explorer by
+          <a href="https://coinbase.com/" target="_blank" class="coinbase_logo">Coinbase</a></p>
+    </footer>  
+  </section><!-- sidebar -->
+</div><!-- sidebar_wraper -->
+
+
+<section class="chain_wraper clearfix home_view">
+  <div class="main_chain clearfix">
+
+    <div id="large-header" class="large-header">
+      <canvas id="demo-canvas"></canvas>
+    </div>
+
+    <div class="hexagon-wrapper new_block">
+        <div class="block_info">
+          <h5 class="block_info_title">NEXT BLOCK<span>Net represent income transactions which build new block</span></h5>
+
+          <h4 class="tx_num">24<span>New transactions</span></h4>
+          <h4 class="block_id">1'24"<span>From last Block</span></h4>
+
+        </div>
+        
+         <svg viewBox="0 0 177 205" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+                  <path d="M88.5,0.73828125 L176.628234,51.6191406 L176.628234,153.380859 L88.5,204.261719 L0.37176643,153.380859 L0.37176643,51.6191406 L88.5,0.73828125 Z" id="path-1" opacity="0.0539878731" fill="#F3F7FF" sketch:type="MSShapeGroup"></path>
+                  <path d="M88.5,13.2628005 L165.781682,57.8814002 L165.781682,147.1186 L88.5,191.7372 L11.2183183,147.1186 L11.2183183,57.8814002 L88.5,13.2628005 Z" id="Polygon-1" stroke="#FFFFFF" stroke-width="2" fill="#2C3D5C" sketch:type="MSShapeGroup"></path>
+              </g>
+          </svg>
+    </div>
+
+    <div class="main_chain_wraper">
+      <% Toshi::Models::Block.main_branch.limit(100).order(Sequel.desc(:height)).each{|block| %>
+      <% block_width = 150 + ((block.transactions_count / 1000) * 10) +  ((block.transactions_count / 1000.0).modulo(1) * 100).to_i %>
+      <a href="/blocks" class="hexagon-wrapper block" style="height: <%= block_width + 20 %>px; width: <%= block_width %>px">
+
+          <div class="block_info">
+              <h4 class="tx_num"><%= block.transactions_count %><span>Transactions</span></h4>
+            <h4 class="block_id"><%= block.height %><span>Block Height</span></h4>
+          </div>
+
+          <svg  viewBox="0 0 177 205" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+             <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+                <path d="M88.5,0.73828125 L176.628234,51.6191406 L176.628234,153.380859 L88.5,204.261719 L0.37176643,153.380859 L0.37176643,51.6191406 L88.5,0.73828125 Z" id="path-1" opacity="0.4" fill="#2C3D5C" sketch:type="MSShapeGroup"></path>
+                <path d="M88.5,13.2628005 L165.781682,57.8814002 L165.781682,147.1186 L88.5,191.7372 L11.2183183,147.1186 L11.2183183,57.8814002 L88.5,13.2628005 Z" id="Polygon-1" stroke-opacity="0" stroke="#85a4d7" stroke-width="2" fill="#2C3D5C" sketch:type="MSShapeGroup"></path>
+            </g>
+          </svg>
+
+          <div class="block_spec_wraper" style="display:none">
+            <div class="block_spec">
+                <dl class="dl-horizontal">
+                    <div>
+                      <dt data-translate="block_value"><h3>Block time</h3></dt>
+                      <dd coin="" value="3398.65290418" class="ng-isolate-scope">2014-09-22 | 11:11:21</dd>
+                    </div>
+                    <div>
+                      <dt data-translate="block_value"><h3>Trades sum</h3></dt>
+                      <dd coin="" value="3398.65290418" class="ng-isolate-scope">3,398.65290418 BTC</dd>
+                    </div>
+                    <div>
+                      <dt data-translate="block_difficulty"><h3>Difficulty</h3></dt>
+                      <dd class="ng-binding">29,829,733,124.04</dd>
+                    </div>
+                    <div>
+                      <dt data-translate="block_fee"><h3>Fee</h3></dt>
+                      <dd coin="" value="0.03327430" class="ng-isolate-scope">0.03327430 BTC</dd>
+                    </div>
+                  </dl>
+            </div>
+          </div>
+      </a>
+       <% } %>
+    </div>
+
+
+  </div>
+
+</section><!-- chain_wraper -->
+
+
