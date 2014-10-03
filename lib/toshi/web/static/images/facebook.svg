@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="12px" height="25px" viewBox="0 0 12 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
-    <!-- Generator: Sketch 3.0.4 (8054) - http://www.bohemiancoding.com/sketch -->
+<svg width="44px" height="85px" viewBox="0 0 44 85" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.1 (8751) - http://www.bohemiancoding.com/sketch -->
     <title>Slice 2</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-        <path d="M7.594,9.323 L7.594,7.243 C7.594,7.243 7.355,5.265 8.738,5.265 L11.549,5.265 L11.549,1 L6.763,1 C6.763,1 2.758,0.983 2.758,5.005 C2.758,5.869 2.754,7.442 2.748,9.323 L0,9.323 L0,12.757 L2.741,12.757 C2.725,18.217 2.706,24.302 2.706,24.302 L7.594,24.302 L7.594,12.757 L10.82,12.757 L11.861,9.323 L7.594,9.323 Z" id="Shape" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>
+        <g id="github" sketch:type="MSLayerGroup" fill="#FFFFFF">
+            <path d="M32.2079593,15.6129568 L42.4982311,15.6129568 L42.4982311,4.37297367e-06 L24.9780458,4.37297367e-06 C24.9780458,4.37297367e-06 10.3168795,-0.0622277936 10.3168795,14.6611707 C10.3168795,17.824029 10.3022366,23.5823348 10.2802723,30.468141 L0.220625648,30.468141 L0.220625648,43.0390386 L10.2546473,43.0390386 C10.1960759,63.0265463 10.1265223,85.3020012 10.1265223,85.3020012 L28.0201005,85.3020012 L28.0201005,43.0390386 L39.8295693,43.0390386 L43.6403744,30.468141 L28.0201005,30.468141 L28.0201005,22.8538524 C28.0201005,22.8538524 27.1451895,15.6129568 32.2079593,15.6129568 Z" id="Shape-path" sketch:type="MSShapeGroup"></path>
+        </g>
     </g>
 </svg>

@@ -237,8 +237,7 @@ header {
 .sidebar_wraper{
 	position: absolute;
 	right: 0;
-	width: 44%;
-	padding-left: 1%;
+	width: 550px;
 	top: 0;
 	max-height: 100%;
 	overflow: hidden;
@@ -336,11 +335,11 @@ body.scrollactive header {
 	font: 0px/0px a;
 	color: transparent;
 	text-shadow: none;
-	background-image: url("../images/toshi_logo.svg");
+	background-image: url("../images/toshi_ex_logo_white.svg");
 	background-repeat: no-repeat;
 	background-position: 0 0;
 	background-size: 100%;
-	width: 145px;
+	width: 232px;
 	height: 30px;
 	display: block;
 	float: left;
@@ -454,7 +453,7 @@ body.scrollactive header {
    Explorer Sidebar
    ========================================================================== */
 .sidebar {
-	width: 600px;
+	width: 550px;
 	top: 0px;
 	bottom: 0;
 	padding-top: 90px;
@@ -560,7 +559,8 @@ body.scrollactive .sidebar {
 	-o-transition: all 0.8s linear;
 	transition: all 0.8s linear;
 }
-body.scrollactive #large-header {
+body.scrollactive #large-header,
+.chain_wraper.block_view .main_chain.active:after  {
 	opacity: 0;
 }
 .hexagon-wrapper h4 {
@@ -584,8 +584,8 @@ body.scrollactive #large-header {
 h5.block_info_title {
 	position: absolute;
 	top: 65px;
-	color: #fff;
-	font-size: 17px;
+	color: rgba(255, 255, 255, 0.65);
+	font-size: 15px;
 	margin: 0;
 	text-align: left;
 	width: 80%;
@@ -794,6 +794,21 @@ a.hexagon-wrapper:hover {
 /* ==========================================================================
    BLOCKS
    ========================================================================== */
+.chain_wraper.block_view .main_chain:after  {
+	right: 0;
+	top: 84px;
+	content: "";
+	position: absolute;
+	width: 50%;
+	height: 1px;
+	background-color: #85a4d7;
+	opacity: 1;
+
+	-webkit-transition: all 0.4s linear;
+	-moz-transition: all 0.4s linear;
+	-o-transition: all 0.4s linear;
+	transition: all 0.4s linear;
+} 
 .block_view .main_chain_navigation {
  	float: left;
  	margin-left: 0px;
@@ -801,7 +816,7 @@ a.hexagon-wrapper:hover {
  }
 .chain_wraper.block_view,
 .chain_wraper.tx_view  {
-  	padding-top: 90px;
+  	padding-top: 95px;
  }
  .chain_wraper.address_view {
   	padding-top: 100px;
@@ -996,13 +1011,13 @@ a.hexagon-wrapper:hover {
 }
 .back_up:after,
 .info_nav a:after,
-.address_tree_wraper .tx-indicator:before {
+.tx_tree_wraper:before {
 	content: "";
 	width: 20px;
 	height: 20px;
 	top: 50%;
 	left: 50%;
-	margin: -8px 0 0 -10px;
+	margin: -9px 0 0 -10px;
 	position: absolute;
 	z-index: 500;
 	opacity: .6;
@@ -1017,9 +1032,7 @@ a.hexagon-wrapper:hover {
 	-o-transition: all 0.2s ease-out;
 	transition: all 0.2s ease-out;
 }
-.address_tree_wraper .tx-indicator:before {
-	transform: rotate(90deg);
-}
+
 .back_up:hover:after,
 .info_nav a:hover:after {
 	opacity: 1;
@@ -1117,13 +1130,13 @@ a.hexagon-wrapper:hover {
 .share_wraper a.facebook {
 	width: 46px;
 	height: 54px;
-	left: 21px;
+	left: 22px;
 	bottom: 37px;
 }
 .share_wraper a.twitter {
 	width: 46px;
 	height: 54px;
-	left: 42px;
+	left: 43px;
 	bottom: -1px;
 	-webkit-animation-delay: .1s;
     animation-delay: .1s;
@@ -1131,7 +1144,7 @@ a.hexagon-wrapper:hover {
 .share_wraper a.google {
 	width: 46px;
 	height: 54px;
-	left: 63px;
+	left: 65px;
 	bottom: 36px;
 	-webkit-animation-delay: .2s;
     animation-delay: .2s;
@@ -1139,8 +1152,8 @@ a.hexagon-wrapper:hover {
 .share_wraper a.reddit {
 	width: 46px;
 	height: 54px;
-	left: 84px;
-	bottom: -1px;
+	left: 86px;
+	bottom: -2px;
 	-webkit-animation-delay: .3s;
     animation-delay: .3s;
 }
@@ -1255,7 +1268,53 @@ a.hexagon-wrapper:hover {
 	float: left;
 	padding: 15px;
 	margin: 0 0 10px 0;
-	background-color: #273b5b;
+	background-color: rgba(39, 59, 91, 0.7);
+}
+.block_tx_wraper.stats ul li {
+	padding: 0;
+	width: 100%;
+}
+.block_tx_wraper.stats ul li a {
+	display: block;
+	text-decoration: none;
+	position: relative;
+	-webkit-transition: all 0.2s ease-out;
+	-moz-transition: all 0.2s ease-out;
+	-o-transition: all 0.2s ease-out;
+	transition: all 0.2s ease-out;
+}
+.block_tx_wraper.stats ul li a > div {
+	border-right: 1px solid rgba(255,255,255, .1);
+	padding: 15px 15px 15px 15px;
+	margin-right: 50px;
+}
+.block_tx_wraper.stats ul li a:before {
+	content: "";
+	width: 20px;
+	height: 20px;
+	top: 50%;
+	right: 12px;
+	margin: -10px 0 0 0;
+	position: absolute;
+	z-index: 500;
+	opacity: .2;
+	background-image: url("../images/arrow.svg");
+	transform: rotate(90deg);
+
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100%;
+
+	-webkit-transition: all 0.2s ease-out;
+	-moz-transition: all 0.2s ease-out;
+	-o-transition: all 0.2s ease-out;
+	transition: all 0.2s ease-out;
+}
+.block_tx_wraper.stats ul li a:hover:before {
+	opacity: .9;
+}
+.block_tx_wraper.stats ul li a:hover {
+	background-color: rgba(39, 59, 91, 1);
 }
 .chain_wraper.tx_view .stats ul li {
 	width: 100%
@@ -1298,7 +1357,7 @@ a.hexagon-wrapper:hover {
 .address_tree_wraper,
 .address_tree_balance {
 	width: 100%;
-	padding: 56px 0 60px;
+	padding: 0;
 	display: block;
 	position: relative;
 	text-align: center;
@@ -1310,7 +1369,9 @@ a.hexagon-wrapper:hover {
 	transition: all 0.2s ease-out;
 }
 .address_tree_wraper {
-	height: 160px;
+	height: 120px;
+	/*margin-top: 30px;
+	margin-bottom: 30px;*/
 }
 .address_tree_balance {
 	padding: 0;
@@ -1321,12 +1382,29 @@ a.hexagon-wrapper:hover {
 	z-index: 5000;
 }
 .address_tree_wraper.out .tx_tree_wraper {
-	left: 30px;
+	left: -2px;
 }
 .address_tree_wraper.in .tx_tree_wraper {
-	right: 30px;
+	right: -1px;
 }
-.address_tree_wraper .tx-indicator {
+.address_tree_wraper.in .tx_tree_wraper:before {
+	top: 50%;
+	right: -9px;
+	margin: -7px 0 0 0;
+	left: auto;
+	width: 14px;
+	height: 14px;
+	opacity: 1;
+}
+.address_tree_wraper.out .tx_tree_wraper:before {
+	top: 50%;
+	left: -9px;
+	margin: -7px 0 0 0;
+	width: 14px;
+	height: 14px;
+	opacity: 1;
+}
+/*.address_tree_wraper .tx-indicator {
 	position: absolute;
 	width: 24px;
 	height: 24px;
@@ -1374,7 +1452,7 @@ a.hexagon-wrapper:hover {
 }
 .address_tree_wraper:hover:after {
 	background-color: rgba(92, 109, 138, .9);
-}
+}*/
 .address_tree_balance h4 {
 	margin: 0 auto;
 	display: inline-block;
@@ -1389,22 +1467,28 @@ a.hexagon-wrapper:hover {
 	top: 50%;
 	margin: -4px 0 0 0;
 }
-.address_tree_balance:after {
+.address_tree_wraper:after {
 	content: "";
 	position: absolute;
 	left: 50%;
-	top:100%;
-	height: 160px;
+	top:0px;
+	height: 120px;
 	background-color: rgba(255, 255, 255, 0.23);
-	width: 3px;
+	width: 4px;
 	z-index: 50;
-	margin-left: -1px;
+	margin-left: -2px;
+}
+.address_tree_wraper.out:after {
+	background-color: rgba(189, 73, 73, 0.8);
+}
+.address_tree_wraper.in:after {
+	background-color: rgba(97, 148, 64, 0.8);
 }
 .address_tree_balance h4,
 .address_tree_wraper .tx_tree_wraper,
 .address_tree_wraper .tx_tree_confor {
 	color: #fff;
-	padding: 8px 15px;
+	padding: 10px 30px 10px 20px;
 	font-size:15px;
 	display: inline-block;
 	white-space: nowrap;
@@ -1431,15 +1515,20 @@ a.hexagon-wrapper:hover {
 	text-align: left;
 }
 .address_tree_balance h4 {
-	/*border-top: 2px solid rgba(255, 255, 255, 0.3);*/
+	border-top: 2px solid rgba(255, 255, 255, 0.3);
 	border-bottom: 2px solid rgba(255, 255, 255, 0.3);
-	font-size:16px;
+	font-size:18px;
 	padding: 20px 0px;
 	position: relative;
 	min-width: 180px;
 	text-align: center;
 }
-.address_tree_balance h4:after {
+.address_tree_balance h4 p {
+	font-size: 10px;
+	margin-bottom: 3px;
+	opacity: .4;
+}
+/*.address_tree_balance h4:after {
 	position: absolute;
 	content: "";
 	z-index: 1;
@@ -1449,14 +1538,14 @@ a.hexagon-wrapper:hover {
 	margin: 0 0 0 -8px;
 	height: 2px;
 	background-color:rgba(255, 255, 255, 0.3); 
-}
+}*/
 .address_tree_wraper.out .tx_tree_wraper {
 	background: rgba(189, 73, 73, 0.3);
-	border-left: 5px solid rgba(189, 73, 73, 0.7);
+	border-left: 4px solid rgba(189, 73, 73, 0.7);
 }
 .address_tree_wraper.in .tx_tree_wraper {
 	background:  rgba(97, 148, 64, 0.3);
-	border-right: 5px solid rgba(97, 148, 64, 0.7);
+	border-right: 4px solid rgba(97, 148, 64, 0.7);
 }
 .address_tree_wraper:hover .tx_tree_confor {
 	background-color: #5C6D8A;
@@ -1481,7 +1570,6 @@ a.hexagon-wrapper:hover {
 }
 .tx_filter_wraper {
 	position: fixed;
-	left: 40px;
 	top: 90px;
 	z-index: 99999;
 	-webkit-transition: all 0.4s linear;
@@ -1660,6 +1748,9 @@ footer a:hover {
 	.network_explorer .navbar {
 		padding: 0 40px;
 	}
+	.sidebar {
+		padding-right: 40px;
+	}
 
 }
 @media (max-width: 1200px) {
@@ -1683,7 +1774,7 @@ footer a:hover {
 @media (max-width: 400px) {
 
 }
-@media (max-height: 900px) {
+@media (max-height: 1200px) {
 	footer {
 		position: relative;
 	}

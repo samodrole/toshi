@@ -66,7 +66,7 @@
 
       <h5>Address validation</h5>
       <p>If you would like to validate a Bitcoin address in an application, it is advisable to use a method from this thread rather than to just check for string length, allowed characters, or that the address starts with a 1 or 3.</p>
-      <a href="#" target="_blank">ream more on Wikipedia</a>
+      <a href="#" target="_blank">read more on Wikipedia</a>
     </div> 
   </div>
     <footer>
@@ -99,15 +99,17 @@
       <% Toshi::Models::Block.main_branch.limit(100).order(Sequel.desc(:height)).each{|block| %>
       <% i += 1  %>
       <div class="address_tree_balance">
-        <h4 class="tx_tree">2.98300000 <span>BTC</span></h4>
+        <h4 class="tx_tree">
+          <p>BALANCE</p>
+        2.98300000 <span>BTC</span></h4>
       </div>
-      <a href="#" class="address_tree_wraper <%= (rand(1..10)%3 == 0) ? 'out' : 'in' %> clearfix">
+      <a href="/transactions" class="address_tree_wraper <%= (rand(1..10)%3 == 0) ? 'out' : 'in' %> clearfix">
         <div>
           <div class="tx_tree_wraper">
             <h4 class="tx_tree">2.98300000 <span>BTC</span></h4>
             <p><strong>43</strong> Con. | 09.12.204 | 23:12</p>
           </div>
-          <span class="tx-indicator"></span>
+          <!-- <span class="tx-indicator"></span> -->
         </div>
       </a>
      <% } %>
