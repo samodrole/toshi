@@ -94,9 +94,10 @@ module Toshi
         end
       end
 
+      relay_transaction_to_peers(tx)
+
       if accepted
         # Recursively process any orphan transactions that depended on this one
-        relay_transaction_to_peers(tx)
         work_queue = [ tx.hash ]
         i = 0
         while i < work_queue.length do
