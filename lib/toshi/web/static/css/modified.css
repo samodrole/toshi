@@ -326,8 +326,15 @@ body.scrollactive header {
 	padding: 0;
 	list-style: none;
 	margin: 0;
+	position: relative;
 }
-.network_explorer .network_status li {
+.network_explorer .network_status {
+	padding-right: 60px;
+}
+.home .network_explorer .network_status {
+	padding-right: 0;
+}
+.network_explorer .network_status > li {
 	float: right;
 	text-transform: uppercase;
 }
@@ -410,6 +417,50 @@ body.scrollactive header {
 	-webkit-animation-iteration-count: infinite;
 	animation-iteration-count: infinite;
 }
+.dropdown-menu {
+	background-color: rgba(39, 59, 91, 0.6);
+	left: -10px;
+	min-width: 140px;
+}
+.dropdown-menu >li>a {
+	color: rgba(255,255,255, .5);
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 12px;
+	padding: 3px 10px;
+	-webkit-transition: all 0.2s linear;
+	-moz-transition: all 0.2s linear;
+	-o-transition: all 0.2s linear;
+	transition: all 0.2s linear;
+}
+.dropdown-menu >li>a:hover {
+	color: rgba(255,255,255, 1);
+	background: rgba(255,255,255, .2);
+}
+.dropdown-menu:after {
+	content: "";
+	width: 14px;
+	height: 14px;
+	top: 50%;
+	margin: -10px 0 0 0;
+	right: 0;
+	position: absolute;
+	z-index: 500;
+	transform: rotate(90deg);
+
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100%;
+}
+.network_status .dropdown-menu {
+	margin-top: -10px;
+}
+.dropdown-menu >li>a span,
+.network_status .dropdown-menu >li>a span  {
+	font-size: 11px;
+	font-weight: normal;
+	color: rgba(255,255,255, .3);
+}
 /* ==========================================================================
    Section style
    ========================================================================== */
@@ -465,8 +516,7 @@ body.scrollactive header {
 	-o-transition: all 0.4s linear;
 	transition: all 0.4s linear;
 }
-body.scrollactive .tx_filter_wraper,
-body.scrollactive .block_spec_wraper  {
+body.scrollactive .tx_filter_wraper {
 	top: 30px;
 }
 body.scrollactive .sidebar {
@@ -474,6 +524,9 @@ body.scrollactive .sidebar {
 }
 .sidebar_wraper h2 {
 	margin-bottom: 20px;
+}
+.sidebar_wraper .main_search.active {
+	display: block !important;
 }
 .sidebar_wraper .main_search{
 	margin-bottom: 20px;
@@ -494,7 +547,8 @@ body.scrollactive .sidebar {
 	line-height: 16px;
 	margin: 0;
 }
-.sidebar_wraper .search:after {
+.sidebar_wraper .search:after,
+.network_explorer .network_status .search_open:after {
 	content: "";
 	position: absolute;
 	right: 10px;
@@ -506,6 +560,13 @@ body.scrollactive .sidebar {
 	background-position: center;
 	background-size: 100%;
 	opacity: .8;
+	z-index: 10;
+}
+.network_explorer .network_status .search_open:after {
+	right: 10px;
+	top: 12px;
+	width: 14px;
+	height: 14px;
 }
 .coin_chain ul,
 .address_stats ul,
@@ -584,7 +645,7 @@ body.scrollactive #large-header,
 h5.block_info_title {
 	position: absolute;
 	top: 65px;
-	color: rgba(255, 255, 255, 0.65);
+	color: rgba(255, 255, 255, 0.8);
 	font-size: 15px;
 	margin: 0;
 	text-align: left;
@@ -703,7 +764,7 @@ a.hexagon-wrapper:hover {
 .hexagon-wrapper object {
 	display: block;
 }
-.hexagon-wrapper.active .block_spec_wraper:after,
+/*.hexagon-wrapper.active .block_spec_wraper:after,
 .hexagon-wrapper.active:after {
 	content: "";
 	position: absolute;
@@ -715,8 +776,8 @@ a.hexagon-wrapper:hover {
 	-moz-transition: all 0.7s linear;
 	-o-transition: all 0.7s linear;
 	transition: all 0.7s linear;
-}
-.hexagon-wrapper.active:after {
+}*/
+/*.hexagon-wrapper.active:after {
 	left: 50%;
 	bottom: -5px;
 	margin: 0 0 0 -5px;
@@ -724,34 +785,19 @@ a.hexagon-wrapper:hover {
 	height: 10px;
 	border-radius: 50%;
 	z-index: 150;
-}
-.hexagon-wrapper.active .block_spec_wraper {
+}*/
+.hexagon-wrapper:hover .block_spec_wraper {
 	position: absolute;
 	right: 105%;
 	background-color: rgba(44, 61, 92, 0.5);
 	padding: 20px 20px 30px;
 	border-radius: 5px;
 	bottom: -15px;
-	display: block !important;
 	width: 200px;
-
-	-webkit-transition: all 0.7s linear;
-	-moz-transition: all 0.7s linear;
-	-o-transition: all 0.7s linear;
-	transition: all 0.7s linear;
+	display: block !important;
 }
-.hexagon-wrapper.active .block_spec_wraper:after {
-	left: 20px;
-	bottom: 15px;
-	margin: 0;
-	width: 132%;
-	height: 1px;
-}
-.main_chain.active .hexagon-wrapper.active:after,
-.main_chain.active .hexagon-wrapper.active .block_spec_wraper,
-.main_chain.active .block_spec_wraper:after,
-.main_chain.active .block_spec_wraper:before {
-	opacity: 0;
+.main_chain.active .hexagon-wrapper.active:after {
+	opacity: ;
 }
 .dl-horizontal {
 	margin: 0;
@@ -796,7 +842,7 @@ a.hexagon-wrapper:hover {
    ========================================================================== */
 .chain_wraper.block_view .main_chain:after  {
 	right: 0;
-	top: 84px;
+	top: 89px;
 	content: "";
 	position: absolute;
 	width: 50%;
@@ -816,7 +862,7 @@ a.hexagon-wrapper:hover {
  }
 .chain_wraper.block_view,
 .chain_wraper.tx_view  {
-  	padding-top: 95px;
+  	padding-top: 90px;
  }
  .chain_wraper.address_view {
   	padding-top: 100px;
@@ -887,7 +933,8 @@ a.hexagon-wrapper:hover {
    ========================================================================== */
 .share_wraper a,
 .info_nav a,
-.new_tx_wraper a {
+.new_tx_wraper a,
+.network_status .search_open {
 	position: absolute;
 	display: block;
 	z-index: 20;
@@ -903,7 +950,8 @@ a.hexagon-wrapper:hover {
 .back_up svg,
 .info_nav a svg,
 .new_tx_wraper a svg,
-.address_tree_wraper .tx-indicator svg {
+.address_tree_wraper .tx-indicator svg,
+.network_status svg {
 	width: 100%;
 	height: auto;
 	position: absolute;
@@ -927,8 +975,7 @@ a.hexagon-wrapper:hover {
 	-o-transition: all 0.2s ease-out;
 	transition: all 0.2s ease-out;
 }
-.hexagon-wrapper:hover svg #Polygon-1,
-.block_view .hexagon-wrapper.active svg #Polygon-1 {
+.hexagon-wrapper:hover svg #Polygon-1 {
 	stroke-opacity: 1;
 
 	-webkit-transition: all 0.2s ease-out;
@@ -951,8 +998,18 @@ a.hexagon-wrapper:hover {
 	stroke:#6F85AC;
 	stroke-opacity: .4;
 }
+
 .hexagon-wrapper.new_block svg #path-1 {
 	opacity: .1;
+}
+.network_status .search_open {
+	width: 34px;
+	height: 36px;
+	right: 0;
+	top: 7px;
+}
+.home .network_explorer .network_status .search_open {
+	display: none;
 }
 .new_tx_wraper {
 	left: 5%;
@@ -1105,7 +1162,8 @@ a.hexagon-wrapper:hover {
 	display: none;
 }
 .share_wraper a:hover svg #Polygon-1,
-.share_wraper:hover a.share svg #Polygon-1 {
+.share_wraper:hover a.share svg #Polygon-1,
+.network_status .search_open:hover svg #Polygon-1 {
 	stroke-opacity:1;
 }
 .share_wraper:hover a.facebook,
@@ -1270,11 +1328,19 @@ a.hexagon-wrapper:hover {
 	margin: 0 0 10px 0;
 	background-color: rgba(39, 59, 91, 0.7);
 }
+.tx_view .main_chain_wraper.stats ul li {
+	background-color: transparent;
+	padding: 0;
+}
 .block_tx_wraper.stats ul li {
 	padding: 0;
 	width: 100%;
 }
-.block_tx_wraper.stats ul li a {
+.stats ul li.block_backlink {
+	padding: 0;
+}
+.block_tx_wraper.stats ul li a,
+.block_backlink > a {
 	display: block;
 	text-decoration: none;
 	position: relative;
@@ -1283,12 +1349,14 @@ a.hexagon-wrapper:hover {
 	-o-transition: all 0.2s ease-out;
 	transition: all 0.2s ease-out;
 }
-.block_tx_wraper.stats ul li a > div {
+.block_tx_wraper.stats ul li a > div,
+.block_backlink > a > div {
 	border-right: 1px solid rgba(255,255,255, .1);
 	padding: 15px 15px 15px 15px;
 	margin-right: 50px;
 }
-.block_tx_wraper.stats ul li a:before {
+.block_tx_wraper.stats ul li a:before,
+.block_backlink > a:before {
 	content: "";
 	width: 20px;
 	height: 20px;
@@ -1310,10 +1378,12 @@ a.hexagon-wrapper:hover {
 	-o-transition: all 0.2s ease-out;
 	transition: all 0.2s ease-out;
 }
-.block_tx_wraper.stats ul li a:hover:before {
+.block_tx_wraper.stats ul li a:hover:before,
+.block_backlink > a:hover:before {
 	opacity: .9;
 }
-.block_tx_wraper.stats ul li a:hover {
+.block_tx_wraper.stats ul li a:hover,
+.block_backlink > a:hover  {
 	background-color: rgba(39, 59, 91, 1);
 }
 .chain_wraper.tx_view .stats ul li {
@@ -1375,11 +1445,21 @@ a.hexagon-wrapper:hover {
 }
 .address_tree_balance {
 	padding: 0;
+	height: 80px;
+	z-index: 5000;
 }
 .tx_tree_wraper {
 	position: absolute;
 	top: -25px;
 	z-index: 5000;
+}
+.address_tree_balance:first-child .balance,
+.address_tree_balance .uncon_balance {
+	display: none;
+}
+.address_tree_balance:first-child .uncon_balance{
+	display: block;
+	opacity: .8;
 }
 .address_tree_wraper.out .tx_tree_wraper {
 	left: -2px;
@@ -1515,13 +1595,14 @@ a.hexagon-wrapper:hover {
 	text-align: left;
 }
 .address_tree_balance h4 {
-	border-top: 2px solid rgba(255, 255, 255, 0.3);
-	border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+	/*border-top: 2px solid rgba(255, 255, 255, 0.3);
+	border-bottom: 2px solid rgba(255, 255, 255, 0.3);*/
 	font-size:18px;
 	padding: 20px 0px;
 	position: relative;
 	min-width: 180px;
 	text-align: center;
+	z-index: 10;
 }
 .address_tree_balance h4 p {
 	font-size: 10px;
@@ -1670,8 +1751,7 @@ a.hexagon-wrapper:hover {
 .tx_info_wraper {
 	display: table;
 	width: 100%;
-	border-bottom: 1px solid #dedede;
-	margin: 10px 0 0;
+	margin: 0;
 	padding-top: 10px;
 }
 .tx_info_wraper .from-row {
@@ -1680,7 +1760,7 @@ a.hexagon-wrapper:hover {
 	width: 50%;
 }
 .tx_info_wraper .to-row {
-	border-left: 1px solid #E6E6E6;
+	border-left: 1px solid rgba(230, 230, 230, 0.25);
 	display: table-cell;
 	float: none;
 	position: relative;
@@ -1702,6 +1782,10 @@ a.hexagon-wrapper:hover {
 .tx_line {
 	display: block;
 	margin-bottom: 5px;
+}
+.tx_info_wraper .from a,
+.tx_info_wraper .to a {
+	color: rgba(255,255,255, .85);
 }
 
 /* ==========================================================================

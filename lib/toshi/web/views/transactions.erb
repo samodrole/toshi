@@ -3,7 +3,7 @@
 
      <div class="main_search" style="display:none;">
       <div class="section_title">
-        <h2>Search <span>search in network for address, block, transaction</span>
+        <h2>Search
         </h2>
          <div class="search">
             <input type="email" class="search-control" id="exampleInputEmail1" placeholder="Type in address, block, transaction">
@@ -38,11 +38,13 @@
           <h3>Confirmations</h3>
           <p>139397</p>
         </li>
-        <li class="clearfix col-md-7 col-xs-12 margin-left">
-        <a href="#">
-          <h3>Included in block</h3>
-          <p>509293</p>
-        </a>
+        <li class="clearfix col-md-7 col-xs-12 margin-left block_backlink">
+          <a href="/blocks">
+            <div class="clearfix">
+              <h3>In a block</h3>
+              <p>509293</p>
+            </div>
+          </a>
         </li>
       </ul>
     </div>
@@ -70,11 +72,12 @@
     </div> 
   </div>
 
-  </section><!-- sidebar -->
-  <footer>
+    <footer>
             <p>Toshi Explorer by
             <a href="https://coinbase.com/" target="_blank" class="coinbase_logo">Coinbase</a></p>
       </footer>
+
+  </section><!-- sidebar -->
 </div><!-- sidebar_wraper -->
 
 <section class="chain_wraper clearfix tx_view">
@@ -83,65 +86,137 @@
       
 
       <ul class="clearfix">
-        <li>
-          <a href="#" class="block_tx clearfix">
-          <h3>coinbase</h3>
-            <div class="tx_hash">
-              <p>dc99ad22bef37db2c92a499dd5e672178c179b5a4de6a8a0eff99893eb7d10f0</p> 
-            </div>
-            <div class="tx_fee">
-              <p>50.044 <span>BTC</span></p>
-            </div>
-          </a>
-        </li>
 
         <li>
-          <a href="#" class="block_tx clearfix">
-            <div class="clearfix">
-              <div class="tx_hash">
-                <p>dc99ad22bef37db2c92a499dd5e672178c179b5a4de6a8a0eff99893eb7d10f0</p> 
-              </div>
-              <div class="tx_fee">
-                <p>50.044 <span>BTC</span></p>
-              </div>
-            </div>
-          </a>
-          <div class="expand">
-              <span>expand</span>
+          
 
           <div class="row tx_info_wraper">
             <div class="col-sm-6 from-row">
               <div class="row">
-                <div class="tx_line">
+                <div class="tx_line clearfix">
                   <div class="col-xs-9 from">
                     <!-- <a class="badge" href="/tx/info/09b4221b6e7f5d611e8e622337d4a36d4eeac53e922fe8a51e14016315774849">
                       <span class="add">from Transaction</span>
                     </a> -->
-                    <a href="/address/info/LM1oRV9HCYjQDZ8D1L1KQgjm9vkFGRmdPY" class="ng-binding">LM1oRV9HCYjQDZ8D1L1KQgjm9vkFGRmdPY</a>
+                    <a href="/addresses" class="ng-binding">LM1oRV9HCYjQDZ8D1L1KQgjm9vkFGRmdPY</a>
+                  </div>
+                  <div class="col-xs-3 from-amount">
+                    <span class="ng-binding">-37.1379 BTC</span>
+                  </div>
+                </div><!-- tx_line -->
+                <div class="tx_line clearfix">
+                  <div class="col-xs-9 from">
+                    <!-- <a class="badge" href="/tx/info/09b4221b6e7f5d611e8e622337d4a36d4eeac53e922fe8a51e14016315774849">
+                      <span class="add">from Transaction</span>
+                    </a> -->
+                    <a href="/addresses" class="ng-binding">LM1oRV9HCYjQDZ8D1L1KQgjm9vkFGRmdPY</a>
+                  </div>
+                  <div class="col-xs-3 from-amount">
+                    <span class="ng-binding">-37.1379 BTC</span>
+                  </div>
+                </div><!-- tx_line -->
+                <div class="tx_line clearfix">
+                  <div class="col-xs-9 from">
+                    <!-- <a class="badge" href="/tx/info/09b4221b6e7f5d611e8e622337d4a36d4eeac53e922fe8a51e14016315774849">
+                      <span class="add">from Transaction</span>
+                    </a> -->
+                    <a href="/addresses" class="ng-binding">LM1oRV9HCYjQDZ8D1L1KQgjm9vkFGRmdPY</a>
                   </div>
                   <div class="col-xs-3 from-amount">
                     <span class="ng-binding">-37.1379 BTC</span>
                   </div>
                 </div><!-- tx_line -->
 
-                <div class="tx_line">
+                <div class="tx_line clearfix">
                   <div class="col-xs-9 from">
                     <!-- <a class="badge" href="/tx/info/09b4221b6e7f5d611e8e622337d4a36d4eeac53e922fe8a51e14016315774849">
                       <span class="add">from Transaction</span>
                     </a> -->
-                    <a href="/address/info/LM1oRV9HCYjQDZ8D1L1KQgjm9vkFGRmdPY" class="ng-binding">LM1oRV9HCYjQDZ8D1L1KQgjm9vkFGRmdPY</a>
+                    <a href="/addresses" class="ng-binding">LM1oRV9HCYjQDZ8D1L1KQgjm9vkFGRmdPY</a>
                   </div>
                   <div class="col-xs-3 from-amount">
                     <span class="ng-binding">-37.1379 BTC</span>
                   </div>
                 </div><!-- tx_line -->
 
-                <div class="tx_line">
+                <div class="tx_line clearfix">
                   <div class="col-xs-9 from">
                     <!-- <a class="badge" href="/tx/info/09b4221b6e7f5d611e8e622337d4a36d4eeac53e922fe8a51e14016315774849">
                       <span class="add">from Transaction</span>
                     </a> -->
-                    <a href="/address/info/LM1oRV9HCYjQDZ8D1L1KQgjm9vkFGRmdPY" class="ng-binding">LM1oRV9HCYjQDZ8D1L1KQgjm9vkFGRmdPY</a>
+                    <a href="/addresses" class="ng-binding">LM1oRV9HCYjQDZ8D1L1KQgjm9vkFGRmdPY</a>
+                  </div>
+                  <div class="col-xs-3 from-amount">
+                    <span class="ng-binding">-37.1379 BTC</span>
+                  </div>
+                </div><!-- tx_line -->
+
+                <div class="tx_line clearfix">
+                  <div class="col-xs-9 from">
+                    <!-- <a class="badge" href="/tx/info/09b4221b6e7f5d611e8e622337d4a36d4eeac53e922fe8a51e14016315774849">
+                      <span class="add">from Transaction</span>
+                    </a> -->
+                    <a href="/addresses" class="ng-binding">LM1oRV9HCYjQDZ8D1L1KQgjm9vkFGRmdPY</a>
+                  </div>
+                  <div class="col-xs-3 from-amount">
+                    <span class="ng-binding">-37.1379 BTC</span>
+                  </div>
+                </div><!-- tx_line -->
+
+                <div class="tx_line clearfix">
+                  <div class="col-xs-9 from">
+                    <!-- <a class="badge" href="/tx/info/09b4221b6e7f5d611e8e622337d4a36d4eeac53e922fe8a51e14016315774849">
+                      <span class="add">from Transaction</span>
+                    </a> -->
+                    <a href="/addresses" class="ng-binding">LM1oRV9HCYjQDZ8D1L1KQgjm9vkFGRmdPY</a>
+                  </div>
+                  <div class="col-xs-3 from-amount">
+                    <span class="ng-binding">-37.1379 BTC</span>
+                  </div>
+                </div><!-- tx_line -->
+
+                <div class="tx_line clearfix">
+                  <div class="col-xs-9 from">
+                    <!-- <a class="badge" href="/tx/info/09b4221b6e7f5d611e8e622337d4a36d4eeac53e922fe8a51e14016315774849">
+                      <span class="add">from Transaction</span>
+                    </a> -->
+                    <a href="/addresses" class="ng-binding">LM1oRV9HCYjQDZ8D1L1KQgjm9vkFGRmdPY</a>
+                  </div>
+                  <div class="col-xs-3 from-amount">
+                    <span class="ng-binding">-37.1379 BTC</span>
+                  </div>
+                </div><!-- tx_line -->
+
+                <div class="tx_line clearfix">
+                  <div class="col-xs-9 from">
+                    <!-- <a class="badge" href="/tx/info/09b4221b6e7f5d611e8e622337d4a36d4eeac53e922fe8a51e14016315774849">
+                      <span class="add">from Transaction</span>
+                    </a> -->
+                    <a href="/addresses" class="ng-binding">LM1oRV9HCYjQDZ8D1L1KQgjm9vkFGRmdPY</a>
+                  </div>
+                  <div class="col-xs-3 from-amount">
+                    <span class="ng-binding">-37.1379 BTC</span>
+                  </div>
+                </div><!-- tx_line -->
+
+                <div class="tx_line clearfix">
+                  <div class="col-xs-9 from">
+                    <!-- <a class="badge" href="/tx/info/09b4221b6e7f5d611e8e622337d4a36d4eeac53e922fe8a51e14016315774849">
+                      <span class="add">from Transaction</span>
+                    </a> -->
+                    <a href="/addresses" class="ng-binding">LM1oRV9HCYjQDZ8D1L1KQgjm9vkFGRmdPY</a>
+                  </div>
+                  <div class="col-xs-3 from-amount">
+                    <span class="ng-binding">-37.1379 BTC</span>
+                  </div>
+                </div><!-- tx_line -->
+
+                <div class="tx_line clearfix">
+                  <div class="col-xs-9 from">
+                    <!-- <a class="badge" href="/tx/info/09b4221b6e7f5d611e8e622337d4a36d4eeac53e922fe8a51e14016315774849">
+                      <span class="add">from Transaction</span>
+                    </a> -->
+                    <a href="/addresses" class="ng-binding">LM1oRV9HCYjQDZ8D1L1KQgjm9vkFGRmdPY</a>
                   </div>
                   <div class="col-xs-3 from-amount">
                     <span class="ng-binding">-37.1379 BTC</span>
@@ -152,9 +227,57 @@
             </div><!-- from-row -->
 
             <div class="col-sm-6 to-row">
-              <div class="row">
+              <div class="row clearfix">
                 <div class="col-xs-9 col-sm-8 to">
-                  <a href="/address/info/LM1oRV9HCYjQDZ8D1L1KQgjm9vkFGRmdPY" class="ng-binding">LM1oRV9HCYjQDZ8D1L1KQgjm9vkFGRmdPY</a>
+                  <a href="/addresses" class="ng-binding">LM1oRV9HCYjQDZ8D1L1KQgjm9vkFGRmdPY</a>
+                </div>
+                <div class="col-xs-3 col-sm-4 spent">
+                  <span class="ng-binding">-37.1379 BTC</span>
+                  <!-- <a class="badge" href="/tx/info/09b4221b6e7f5d611e8e622337d4a36d4eeac53e922fe8a51e14016315774849">
+                  <span class="add">to Transaction</span>
+                  </a> -->
+                </div>
+              </div>
+
+              <div class="row clearfix">
+                <div class="col-xs-9 col-sm-8 to">
+                  <a href="/addresses" class="ng-binding">LM1oRV9HCYjQDZ8D1L1KQgjm9vkFGRmdPY</a>
+                </div>
+                <div class="col-xs-3 col-sm-4 spent">
+                  <span class="ng-binding">-37.1379 BTC</span>
+                  <!-- <a class="badge" href="/tx/info/09b4221b6e7f5d611e8e622337d4a36d4eeac53e922fe8a51e14016315774849">
+                  <span class="add">to Transaction</span>
+                  </a> -->
+                </div>
+              </div>
+
+              <div class="row clearfix">
+                <div class="col-xs-9 col-sm-8 to">
+                  <a href="/addresses" class="ng-binding">LM1oRV9HCYjQDZ8D1L1KQgjm9vkFGRmdPY</a>
+                </div>
+                <div class="col-xs-3 col-sm-4 spent">
+                  <span class="ng-binding">-37.1379 BTC</span>
+                  <!-- <a class="badge" href="/tx/info/09b4221b6e7f5d611e8e622337d4a36d4eeac53e922fe8a51e14016315774849">
+                  <span class="add">to Transaction</span>
+                  </a> -->
+                </div>
+              </div>
+
+              <div class="row clearfix">
+                <div class="col-xs-9 col-sm-8 to">
+                  <a href="/addresses" class="ng-binding">LM1oRV9HCYjQDZ8D1L1KQgjm9vkFGRmdPY</a>
+                </div>
+                <div class="col-xs-3 col-sm-4 spent">
+                  <span class="ng-binding">-37.1379 BTC</span>
+                  <!-- <a class="badge" href="/tx/info/09b4221b6e7f5d611e8e622337d4a36d4eeac53e922fe8a51e14016315774849">
+                  <span class="add">to Transaction</span>
+                  </a> -->
+                </div>
+              </div>
+
+              <div class="row clearfix">
+                <div class="col-xs-9 col-sm-8 to">
+                  <a href="/addresses" class="ng-binding">LM1oRV9HCYjQDZ8D1L1KQgjm9vkFGRmdPY</a>
                 </div>
                 <div class="col-xs-3 col-sm-4 spent">
                   <span class="ng-binding">-37.1379 BTC</span>
@@ -165,9 +288,6 @@
               </div>
             </div><!-- from-row -->
           </div><!-- tx_info_wraper -->
-
-
-          </div><!-- expander -->
          
         </li>
 

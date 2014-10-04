@@ -3,7 +3,7 @@
 
      <div class="main_search" style="display:none;">
       <div class="section_title">
-        <h2>Search <span>search in network for address, block, transaction</span>
+        <h2>Search
         </h2>
          <div class="search">
             <input type="email" class="search-control" id="exampleInputEmail1" placeholder="Type in address, block, transaction">
@@ -87,8 +87,8 @@
               <h4>All tx <span>(BTC)</span></h4> <span class="caret"></span>
             </a>
             <ul class="dropdown-menu" role="menu">
-              <li><a href="">Input tx (BTC)</a></li>
-              <li><a href="">Output tx (BTC)</a></li>
+              <li><a href="">Input tx <span>(BTC)</span></a></li>
+              <li><a href="">Output tx <span>(BTC)</span></a></li>
             </ul>
           </li> 
         </ul>
@@ -100,8 +100,11 @@
       <% i += 1  %>
       <div class="address_tree_balance">
         <h4 class="tx_tree">
-          <p>BALANCE</p>
-        2.98300000 <span>BTC</span></h4>
+          <p class="balance">BALANCE (BTC)</p>
+          <p class="uncon_balance" style="none;">UNCONFIRMED</p>
+        232.98300000</h4>
+
+
       </div>
       <a href="/transactions" class="address_tree_wraper <%= (rand(1..10)%3 == 0) ? 'out' : 'in' %> clearfix">
         <div>
